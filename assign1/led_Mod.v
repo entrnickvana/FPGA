@@ -54,13 +54,24 @@
 //////////////////////////////////////////////////////////////////////////////////
 module led_Mod(
 	input x1,
-	output [7:0] leds
-    );
+	input [7:0] switches,
+	input bTop,
+	input bBottom,
+	input bLeft,
+	input bRight,
+	output [7:0] leds,
+	output [3:0] anodes,
+	output [7:0] SSD
+	    );
+
 
 	wire clock;
+	wire stopButton;
 
 	//Bind crystal to clock
 	assign clock = x1;
+	assign stopButton = bBottom;
+
 
 
 
@@ -73,7 +84,15 @@ module led_Mod(
 	// On each clock edge increment counter by one bit value of one
 	always@(posedge clock)
 	begin
-		counter <= counter + 1'b1;
+
+		if(stopButton == 1'b1) 
+			begin
+				counter <= counter;			
+			end
+		else 
+			begin
+				counter <= counter + 1'b1;			
+			end
 
 		//Simulate a 7 with A, B, C grounded
 	end
