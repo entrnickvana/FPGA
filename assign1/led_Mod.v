@@ -111,13 +111,13 @@ module led_Mod(
 		
 		if (switches[0] == 1'b1) // SEG ON
 			begin
-				anodesReg <= 4'b0001;
+				anodesReg <= 4'b1110;
 				SSD_REG <= 8'b11111000;
 			end
 		else // SEG OFF
 			begin
-				anodesReg <= 4'b0000;
-				SSD_REG <= 8'b00000111;
+				anodesReg <= 4'b1110;
+				SSD_REG <= 8'b11111111;
 			end
 	end
 
