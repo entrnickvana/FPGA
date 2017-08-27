@@ -18,3 +18,21 @@ map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -re
 par -w -intstyle ise -ol high -mt off led_Mod_map.ncd led_Mod.ncd led_Mod.pcf 
 trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml led_Mod.twx led_Mod.ncd -o led_Mod.twr led_Mod.pcf 
 bitgen -intstyle ise -f led_Mod.ut led_Mod.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/assign1/led_Mod.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/assign1/led_Mod.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/assign1/led_Mod.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/assign1/led_Mod.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/Nexys3_Master.ucf -p xc6slx16-csg324-3 led_Mod.ngc led_Mod.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o led_Mod_map.ncd led_Mod.ngd led_Mod.pcf 
+par -w -intstyle ise -ol high -mt off led_Mod_map.ncd led_Mod.ncd led_Mod.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml led_Mod.twx led_Mod.ncd -o led_Mod.twr led_Mod.pcf 
+bitgen -intstyle ise -f led_Mod.ut led_Mod.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/assign1/led_Mod.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/assign1/led_Mod.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/Nexys3_Master.ucf -p xc6slx16-csg324-3 led_Mod.ngc led_Mod.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o led_Mod_map.ncd led_Mod.ngd led_Mod.pcf 
+par -w -intstyle ise -ol high -mt off led_Mod_map.ncd led_Mod.ncd led_Mod.pcf 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/assign1/led_Mod.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/assign1/led_Mod.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/assign1/led_Mod.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/assign1/led_Mod.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/Nexys3_Master.ucf -p xc6slx16-csg324-3 led_Mod.ngc led_Mod.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o led_Mod_map.ncd led_Mod.ngd led_Mod.pcf 
+par -w -intstyle ise -ol high -mt off led_Mod_map.ncd led_Mod.ncd led_Mod.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml led_Mod.twx led_Mod.ncd -o led_Mod.twr led_Mod.pcf 
+bitgen -intstyle ise -f led_Mod.ut led_Mod.ncd 

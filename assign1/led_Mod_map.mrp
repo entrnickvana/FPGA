@@ -10,7 +10,7 @@ Target Device  : xc6slx16
 Target Package : csg324
 Target Speed   : -3
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Sat Aug 26 16:52:50 2017
+Mapped Date    : Sat Aug 26 18:10:53 2017
 
 Design Summary
 --------------
@@ -52,8 +52,8 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                         9 out of     232    3%
-    Number of LOCed IOBs:                        9 out of       9  100%
+  Number of bonded IOBs:                        10 out of     232    4%
+    Number of LOCed IOBs:                       10 out of      10  100%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      32    0%
@@ -80,11 +80,11 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                1.22
+Average Fanout of Non-Clock Nets:                1.95
 
-Peak Memory Usage:  430 MB
-Total REAL time to MAP completion:  5 secs 
-Total CPU time to MAP completion:   5 secs 
+Peak Memory Usage:  428 MB
+Total REAL time to MAP completion:  12 secs 
+Total CPU time to MAP completion:   7 secs 
 
 Table of Contents
 -----------------
@@ -110,6 +110,15 @@ Section 2 - Warnings
 
 Section 3 - Informational
 -------------------------
+INFO:LIT:243 - Logical network switches<7> has no load.
+INFO:LIT:395 - The above info message is repeated 22 more times for the
+   following (max. 5 shown):
+   switches<6>,
+   switches<5>,
+   switches<4>,
+   switches<3>,
+   switches<2>
+   To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:LIT:244 - All of the single ended outputs in this design are using slew
    rate limited output drivers. The delay on speed critical single ended outputs
@@ -144,6 +153,7 @@ Section 6 - IOB Properties
 | IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
 |                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| bBottom                            | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
 | leds<0>                            | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
 | leds<1>                            | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
 | leds<2>                            | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |

@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.36 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.43 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.37 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.43 secs
  
 --> Reading design: led_Mod.prj
 
@@ -120,8 +120,12 @@ Elaborating module <led_Mod>.
 
 Synthesizing Unit <led_Mod>.
     Related source file is "C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\assign1\led_Mod.v".
+WARNING:Xst:647 - Input <switches> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <bTop> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <bLeft> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <bRight> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 29-bit register for signal <counter>.
-    Found 29-bit adder for signal <counter[28]_GND_1_o_add_1_OUT> created at line 76.
+    Found 29-bit adder for signal <counter[28]_GND_1_o_add_2_OUT> created at line 94.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  29 D-type flip-flop(s).
@@ -196,18 +200,19 @@ Top Level Output File Name         : led_Mod.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 88
+# BELS                             : 89
 #      GND                         : 1
-#      INV                         : 1
+#      INV                         : 2
 #      LUT1                        : 28
 #      MUXCY                       : 28
 #      VCC                         : 1
 #      XORCY                       : 29
 # FlipFlops/Latches                : 29
-#      FD                          : 29
+#      FDE                         : 29
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 8
+# IO Buffers                       : 9
+#      IBUF                        : 1
 #      OBUF                        : 8
 
 Device utilization summary:
@@ -218,19 +223,19 @@ Selected Device : 6slx16csg324-3
 
 Slice Logic Utilization: 
  Number of Slice Registers:              29  out of  18224     0%  
- Number of Slice LUTs:                   29  out of   9112     0%  
-    Number used as Logic:                29  out of   9112     0%  
+ Number of Slice LUTs:                   30  out of   9112     0%  
+    Number used as Logic:                30  out of   9112     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     29
-   Number with an unused Flip Flop:       0  out of     29     0%  
-   Number with an unused LUT:             0  out of     29     0%  
-   Number of fully used LUT-FF pairs:    29  out of     29   100%  
+ Number of LUT Flip Flop pairs used:     30
+   Number with an unused Flip Flop:       1  out of     30     3%  
+   Number with an unused LUT:             0  out of     30     0%  
+   Number of fully used LUT-FF pairs:    29  out of     30    96%  
    Number of unique control sets:         1
 
 IO Utilization: 
- Number of IOs:                           9
- Number of bonded IOBs:                   9  out of    232     3%  
+ Number of IOs:                          33
+ Number of bonded IOBs:                  10  out of    232     4%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
@@ -268,7 +273,7 @@ Timing Summary:
 Speed Grade: -3
 
    Minimum period: 2.199ns (Maximum Frequency: 454.783MHz)
-   Minimum input arrival time before clock: No path found
+   Minimum input arrival time before clock: 3.577ns
    Maximum output required time after clock: 3.634ns
    Maximum combinational path delay: No path found
 
@@ -291,7 +296,7 @@ Delay:               2.199ns (Levels of Logic = 30)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               1   0.447   0.579  counter_0 (counter_0)
+     FDE:C->Q              1   0.447   0.579  counter_0 (counter_0)
      INV:I->O              1   0.206   0.000  Mcount_counter_lut<0>_INV_0 (Mcount_counter_lut<0>)
      MUXCY:S->O            1   0.172   0.000  Mcount_counter_cy<0> (Mcount_counter_cy<0>)
      MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<1> (Mcount_counter_cy<1>)
@@ -322,10 +327,30 @@ Delay:               2.199ns (Levels of Logic = 30)
      MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<26> (Mcount_counter_cy<26>)
      MUXCY:CI->O           0   0.019   0.000  Mcount_counter_cy<27> (Mcount_counter_cy<27>)
      XORCY:CI->O           1   0.180   0.000  Mcount_counter_xor<28> (Result<28>)
-     FD:D                      0.102          counter_28
+     FDE:D                     0.102          counter_28
     ----------------------------------------
     Total                      2.199ns (1.620ns logic, 0.579ns route)
                                        (73.7% logic, 26.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'x1'
+  Total number of paths / destination ports: 29 / 29
+-------------------------------------------------------------------------
+Offset:              3.577ns (Levels of Logic = 2)
+  Source:            bBottom (PAD)
+  Destination:       counter_0 (FF)
+  Destination Clock: x1 rising
+
+  Data Path: bBottom to counter_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.222   0.579  bBottom_IBUF (bBottom_IBUF)
+     INV:I->O             29   0.206   1.249  bBottom_inv1_INV_0 (bBottom_inv)
+     FDE:CE                    0.322          counter_0
+    ----------------------------------------
+    Total                      3.577ns (1.750ns logic, 1.827ns route)
+                                       (48.9% logic, 51.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'x1'
@@ -340,7 +365,7 @@ Offset:              3.634ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               2   0.447   0.616  counter_28 (counter_28)
+     FDE:C->Q              2   0.447   0.616  counter_28 (counter_28)
      OBUF:I->O                 2.571          leds_7_OBUF (leds<7>)
     ----------------------------------------
     Total                      3.634ns (3.018ns logic, 0.616ns route)
@@ -362,14 +387,14 @@ x1             |    2.199|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 6.10 secs
+Total REAL time to Xst completion: 12.00 secs
+Total CPU time to Xst completion: 11.95 secs
  
 --> 
 
-Total memory usage is 295860 kilobytes
+Total memory usage is 295156 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    0 (   0 filtered)
+Number of warnings :    4 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 
