@@ -60,7 +60,6 @@ module led_Mod(
 	input bLeft,
 	input bRight,
 	output [7:0] leds,
-	//output aSeg, bSeg, cSeg, dSeg, eSeg, fSeg, gSeg, dpSeg,
 	output [3:0] anodes,
 	output reg[7:0] SSD
 	    );
@@ -74,19 +73,19 @@ module led_Mod(
 	reg [11:0] clockDivider;
 	reg [28:0] counter;
 	reg [3:0] anodesReg;
-	reg [3:0] SSD_REG_OUT;  // 1 2 4 8 16 32 64 128 256 512 1024
-							// 0 1 2 3 4  5 6   7   8   9   10
+	reg [3:0] SSD_REG_OUT; 
+	reg [7:0] ssdTemp;
+	reg loadStateCount;
 
 
-	/*
-	reg [8:0] firstDigit;
-	reg [8:0] secondDigit;
-	reg [8:0] thirdDigit;
-	reg [8:0] fourthDigit;
-	*/
+	reg[1:0] segMux;
+	wire leftButton;
+	reg buttonPressed;
+	reg [16:0] resetButtonPressedCounter;
+	wire loadUpperDigitsButton;		   //01100001101010000
+	reg[16:0] loadUpperButtonCounter;  //11000011010100000
 
-	reg [1:0] segMux;
-
+	assign loadUpperDigitsButton = bLeft;
 
 	wire[7:0] a; assign a = 8'b10001000;
 
@@ -123,37 +122,11 @@ module led_Mod(
 	assign numE = e;
 	assign numF = f;
 	
-
-
-	/*
-	reg[7:0] e;
-	reg[7:0] f;
-	reg[7:0] g;
-	reg[7:0] h;
-	reg[7:0] i;
-	reg[7:0] j;
-	reg[7:0] k;
-	reg[7:0] l;
-	reg[7:0] m;
-	reg[7:0] n;
-	reg[7:0] o;
-	reg[7:0] p;
-	reg[7:0] q;
-	reg[7:0] r;
-	reg[7:0] s;
-	reg[7:0] t;
-	reg[7:0] u;
-	reg[7:0] v;
-	reg[7:0] w;
-	reg[7:0] x;
-	reg[7:0] y;
-	reg[7:0] z;
-	*/
-	
 	
 	//Bind crystal to clock
 	assign clock = x1;
 	assign stopButton = bBottom;
+
 	// Bind upper bits of counter to leds
 	assign leds = counter[28:21];
 
@@ -165,13 +138,58 @@ module led_Mod(
 	initial segMux = 2'b01;
 	initial SSD_REG_OUT = 8'b00000000;
 	initial clockDivider = 11'b00000000000;
+	initial loadUpperButtonCounter = 17'b00000000000000000;
+	initial resetButtonPressedCounter = 17'b00000000000000000;
 	//initial switchesTemp = 8'b00000000;
+
+
+	/*  Button Debouncer
+	
+	*/
+	always @(posedge clock) 
+	begin
+		if(loadUpperDigitsButton == 1'b1)
+			begin
+				
+				if(loadUpperButtonCounter > 17'b01100001101010000 && resetButtonPressedCounter < 17'b11000011010100000 )
+					begin
+					buttonPressed <= ~buttonPressed;
+					loadUpperButtonCounter <= 17'b00000000000000000;
+					resetButtonPressedCounter <= 17'b00000000000000000;
+					end
+				else if(resetButtonPressedCounter > 17'b11000011010100000)
+					begin
+					buttonPressed <= buttonPressed;
+					loadUpperButtonCounter <= 17'b00000000000000000;
+					resetButtonPressedCounter <= 17'b00000000000000000;
+				else 
+					begin
+					buttonPressed <= buttonPressed;
+					loadUpperButtonCounter <= loadUpperButtonCounter + 1'b1;
+					resetButtonPressedCounter <= resetButtonPressedCounter + 1'b1;
+					end
+			end
+		else
+			begin
+				if(resetButtonPressedCounter > 17'b11000011010100000 )
+					begin
+					buttonPressed <= buttonPressed;
+					loadUpperButtonCounter <= 17'b00000000000000000;
+					resetButtonPressedCounter <= 17'b00000000000000000;
+					end
+				else
+					begin
+					buttonPressed <= buttonPressed;
+					loadUpperButtonCounter <= loadUpperButtonCounter;
+					resetButtonPressedCounter <= resetButtonPressedCounter + 1'b1;
+					end
+			end
+	end
 
 
 	// On each clock edge increment counter by one bit value of one
 	always@(posedge clock)
 	begin
-
 		if(stopButton == 1'b1) 
 			begin
 				counter <= counter;			
@@ -180,99 +198,13 @@ module led_Mod(
 			begin
 				counter <= counter + 1'b1;			
 			end
-
 	end
-
-/*
-	always@(posedge clock) 
-	begin
-		
-		case(switches)
-		4'b0000:begin // 0
-				end
-		4'b0001:begin // 1
-			
-				end
-		4'b0010:begin // 2
-			
-				end
-		4'b0011:begin // 3
-			
-				end
-		4'b0100:begin // 4
-			
-				end
-		4'b0101:begin // 5
-			
-				end
-		4'b0110:begin // 6
-			
-				end
-		4'b0111:begin // 7
-			
-				end
-		4'b1000:begin // 8
-			
-				end
-		4'b1001:begin // 9
-			
-				end
-		4'b1010:begin // 10
-			
-				end
-		4'b1011:begin // 11
-			
-				end
-		4'b1100:begin // 12
-			
-				end
-		4'b1101:begin // 13
-			
-				end
-		4'b1110:begin // 14
-			
-				end
-		4'b1111:begin // 15
-			
-				end
-		default:begin // Default
-				end
-			
-		endcase
-	end
-*/
-
-
-/*
-	always @(posedge clock)
-	begin
-		case(segMux)
-		2'b00:begin
-
-			  end
-		2'b01:begin
-
-			  end
-		2'b10:begin
-
-			  end
-		2'b11:begin
-
-			  end
-		default:begin
-
-			  end
-		endcase
-	end
-*/
-
 
 	/*
 	Increment the select of the proper anode at 100Mhz /4 = 25Mhz, 100Mhz/x = 20khz 
 	*/
 	always @(posedge clock)
 	begin
-
 		if(clockDivider == 11'b10011100010)  // Dive clock to 20khz
 			begin
 				segMux <= segMux + 1'b1;
@@ -283,15 +215,17 @@ module led_Mod(
 				segMux <= segMux;
 				clockDivider <= clockDivider + 1'b1;
 			end
-
 	end
-
-
 
 	always @(posedge clock) 
 	begin
 
-		case(segMux)
+		if(buttonPressed == 1'b1 && loadStateCount == 1'b0)
+			begin
+				ssdTemp <= switches;			
+				loadStateCount <= ~loadStateCount;
+
+						case(segMux)
 		2'b00:begin
 					anodesReg <= 4'b1110;
 					SSD_REG_OUT <= switches[3:0];
@@ -302,6 +236,31 @@ module led_Mod(
 			  end
 		2'b10:begin
 					anodesReg <= 4'b1011;		
+					SSD_REG_OUT <= ssdTemp;
+			  end
+		2'b11:begin
+					anodesReg <= 4'b0111;
+					SSD_REG_OUT <= ssdTemp;
+			  end
+		endcase
+
+			end
+		else if(buttonPressed == 1'b1 && loadStateCount == 1'b0)
+			begin
+				ssdTemp <= switches;			
+				loadStateCount <= ~loadStateCount;
+
+		case(segMux)
+		2'b00:begin
+					anodesReg <= 4'b1110;
+					SSD_REG_OUT <= ssdTemp[3:0];
+			  end
+		2'b01:begin
+					anodesReg <= 4'b1101;
+					SSD_REG_OUT <= ssdTemp[7:4];
+			  end
+		2'b10:begin
+					anodesReg <= 4'b1011;		
 					SSD_REG_OUT <= switches[3:0];
 			  end
 		2'b11:begin
@@ -309,6 +268,36 @@ module led_Mod(
 					SSD_REG_OUT <= switches[7:4];
 			  end
 		endcase
+
+
+			end
+		else 
+			begin
+				ssdTemp <= ssdTemp;			
+				loadStateCount <= loadStateCount;
+
+						case(segMux)
+		2'b00:begin
+					anodesReg <= 4'b1110;
+					SSD_REG_OUT <= switches[3:0];
+			  end
+		2'b01:begin
+					anodesReg <= 4'b1101;
+					SSD_REG_OUT <= switches[7:4];
+			  end
+		2'b10:begin
+					anodesReg <= 4'b1011;		
+					SSD_REG_OUT <= 8'b00000000;
+			  end
+		2'b11:begin
+					anodesReg <= 4'b0111;
+					SSD_REG_OUT <= 8'b00000000;
+			  end
+		endcase
+
+			end
+
+
 	end
 
 	assign anodes = anodesReg;	
@@ -317,26 +306,24 @@ module led_Mod(
 
 	always @(*) 
 	begin
-
 		case(SSD_REG_OUT)
-		4'd0:SSD = num0;
-		4'd1:SSD = num1;
-		4'd2:SSD = num2;
-		4'd3:SSD = num3;
-		4'd4:SSD = num4;
-		4'd5:SSD = num5;
-		4'd6:SSD = num6;
-		4'd7:SSD = num7;
-		4'd8:SSD = num8;
-		4'd9:SSD = num9;
-		4'd10:SSD = numA;
-		4'd11:SSD = numB;
-		4'd12:SSD = numC;
-		4'd13:SSD = numD;
-		4'd14:SSD = numE;
-		4'd15:SSD = numF;
+			4'd0:SSD = num0;
+			4'd1:SSD = num1;
+			4'd2:SSD = num2;
+			4'd3:SSD = num3;
+			4'd4:SSD = num4;
+			4'd5:SSD = num5;
+			4'd6:SSD = num6;
+			4'd7:SSD = num7;
+			4'd8:SSD = num8;
+			4'd9:SSD = num9;
+			4'd10:SSD = numA;
+			4'd11:SSD = numB;
+			4'd12:SSD = numC;
+			4'd13:SSD = numD;
+			4'd14:SSD = numE;
+			4'd15:SSD = numF;
 		endcase
-	
 	end
 	
 
