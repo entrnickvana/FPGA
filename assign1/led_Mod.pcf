@@ -1,26 +1,54 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Sat Aug 26 18:11:04 2017
+// Written by: Map P.20131013 on Wed Aug 30 09:27:10 2017
 //! **************************************************************************
 
 SCHEMATIC START;
+COMP "switches<0>" LOCATE = SITE "T10" LEVEL 1;
+COMP "switches<1>" LOCATE = SITE "T9" LEVEL 1;
+COMP "switches<2>" LOCATE = SITE "V9" LEVEL 1;
+COMP "switches<3>" LOCATE = SITE "M8" LEVEL 1;
+COMP "switches<4>" LOCATE = SITE "N8" LEVEL 1;
+COMP "switches<5>" LOCATE = SITE "U8" LEVEL 1;
+COMP "switches<6>" LOCATE = SITE "V8" LEVEL 1;
+COMP "switches<7>" LOCATE = SITE "T5" LEVEL 1;
 COMP "leds<0>" LOCATE = SITE "U16" LEVEL 1;
+COMP "anodes<0>" LOCATE = SITE "N16" LEVEL 1;
 COMP "leds<1>" LOCATE = SITE "V16" LEVEL 1;
+COMP "anodes<1>" LOCATE = SITE "N15" LEVEL 1;
 COMP "leds<2>" LOCATE = SITE "U15" LEVEL 1;
+COMP "anodes<2>" LOCATE = SITE "P18" LEVEL 1;
 COMP "leds<3>" LOCATE = SITE "V15" LEVEL 1;
+COMP "anodes<3>" LOCATE = SITE "P17" LEVEL 1;
 COMP "leds<4>" LOCATE = SITE "M11" LEVEL 1;
 COMP "leds<5>" LOCATE = SITE "N11" LEVEL 1;
 COMP "leds<6>" LOCATE = SITE "R11" LEVEL 1;
 COMP "leds<7>" LOCATE = SITE "T11" LEVEL 1;
 COMP "bBottom" LOCATE = SITE "C9" LEVEL 1;
+COMP "bLeft" LOCATE = SITE "C4" LEVEL 1;
+COMP "SSD<0>" LOCATE = SITE "T17" LEVEL 1;
+COMP "SSD<1>" LOCATE = SITE "T18" LEVEL 1;
+COMP "SSD<2>" LOCATE = SITE "U17" LEVEL 1;
+COMP "SSD<3>" LOCATE = SITE "U18" LEVEL 1;
+COMP "SSD<4>" LOCATE = SITE "M14" LEVEL 1;
 COMP "x1" LOCATE = SITE "V10" LEVEL 1;
-TIMEGRP sys_clk_pin = BEL "counter_0" BEL "counter_1" BEL "counter_2" BEL
-        "counter_3" BEL "counter_4" BEL "counter_5" BEL "counter_6" BEL
-        "counter_7" BEL "counter_8" BEL "counter_9" BEL "counter_10" BEL
-        "counter_11" BEL "counter_12" BEL "counter_13" BEL "counter_14" BEL
-        "counter_15" BEL "counter_16" BEL "counter_17" BEL "counter_18" BEL
-        "counter_19" BEL "counter_20" BEL "counter_21" BEL "counter_22" BEL
-        "counter_23" BEL "counter_24" BEL "counter_25" BEL "counter_26" BEL
-        "counter_27" BEL "counter_28" BEL "x1_BUFGP/BUFG";
+COMP "SSD<5>" LOCATE = SITE "N14" LEVEL 1;
+COMP "SSD<6>" LOCATE = SITE "L14" LEVEL 1;
+COMP "SSD<7>" LOCATE = SITE "M13" LEVEL 1;
+TIMEGRP sys_clk_pin = BEL "anodesReg_0" BEL "anodesReg_1" BEL "anodesReg_2"
+        BEL "anodesReg_3" BEL "SSD_REG_OUT_0" BEL "SSD_REG_OUT_1" BEL
+        "SSD_REG_OUT_2" BEL "SSD_REG_OUT_3" BEL "counter_0" BEL "counter_1"
+        BEL "counter_2" BEL "counter_3" BEL "counter_4" BEL "counter_5" BEL
+        "counter_6" BEL "counter_7" BEL "counter_8" BEL "counter_9" BEL
+        "counter_10" BEL "counter_11" BEL "counter_12" BEL "counter_13" BEL
+        "counter_14" BEL "counter_15" BEL "counter_16" BEL "counter_17" BEL
+        "counter_18" BEL "counter_19" BEL "counter_20" BEL "counter_21" BEL
+        "counter_22" BEL "counter_23" BEL "counter_24" BEL "counter_25" BEL
+        "counter_26" BEL "counter_27" BEL "counter_28" BEL "anodeState_0" BEL
+        "anodeState_1" BEL "clockDivider_0" BEL "clockDivider_1" BEL
+        "clockDivider_2" BEL "clockDivider_3" BEL "clockDivider_4" BEL
+        "clockDivider_5" BEL "clockDivider_6" BEL "clockDivider_7" BEL
+        "clockDivider_8" BEL "clockDivider_9" BEL "clockDivider_10" BEL
+        "x1_BUFGP/BUFG";
 TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 50%;
 SCHEMATIC END;
 

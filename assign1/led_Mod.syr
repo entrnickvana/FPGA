@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.43 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.43 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Reading design: led_Mod.prj
 
@@ -120,25 +120,45 @@ Elaborating module <led_Mod>.
 
 Synthesizing Unit <led_Mod>.
     Related source file is "C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\assign1\led_Mod.v".
-WARNING:Xst:647 - Input <switches> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <bTop> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <bLeft> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <bRight> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 2-bit register for signal <anodeState>.
+    Found 11-bit register for signal <clockDivider>.
+    Found 4-bit register for signal <anodes>.
+    Found 4-bit register for signal <SSD_REG_OUT>.
     Found 29-bit register for signal <counter>.
-    Found 29-bit adder for signal <counter[28]_GND_1_o_add_2_OUT> created at line 94.
+    Found 29-bit adder for signal <counter[28]_GND_1_o_add_25_OUT> created at line 106.
+    Found 2-bit adder for signal <anodeState[1]_GND_1_o_add_30_OUT> created at line 123.
+    Found 11-bit adder for signal <clockDivider[10]_GND_1_o_add_31_OUT> created at line 129.
+    Found 4x4-bit Read Only RAM for signal <anodeState[1]_GND_1_o_wide_mux_40_OUT>
+    Found 16x8-bit Read Only RAM for signal <SSD>
+    Found 4-bit 3-to-1 multiplexer for signal <anodeState[1]_GND_1_o_wide_mux_39_OUT> created at line 145.
+    Found 4-bit 4-to-1 multiplexer for signal <anodeState[1]_counter[28]_wide_mux_41_OUT> created at line 166.
     Summary:
-	inferred   1 Adder/Subtractor(s).
-	inferred  29 D-type flip-flop(s).
+	inferred   2 RAM(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred  50 D-type flip-flop(s).
+	inferred   3 Multiplexer(s).
 Unit <led_Mod> synthesized.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 1
+# RAMs                                                 : 2
+ 16x8-bit single-port Read Only RAM                    : 1
+ 4x4-bit single-port Read Only RAM                     : 1
+# Adders/Subtractors                                   : 3
+ 11-bit adder                                          : 1
+ 2-bit adder                                           : 1
  29-bit adder                                          : 1
-# Registers                                            : 1
+# Registers                                            : 5
+ 11-bit register                                       : 1
+ 2-bit register                                        : 1
  29-bit register                                       : 1
+ 4-bit register                                        : 2
+# Multiplexers                                         : 3
+ 4-bit 2-to-1 multiplexer                              : 1
+ 4-bit 3-to-1 multiplexer                              : 1
+ 4-bit 4-to-1 multiplexer                              : 1
 
 =========================================================================
 
@@ -148,15 +168,50 @@ Macro Statistics
 
 
 Synthesizing (advanced) Unit <led_Mod>.
+The following registers are absorbed into counter <clockDivider>: 1 register on signal <clockDivider>.
 The following registers are absorbed into counter <counter>: 1 register on signal <counter>.
+The following registers are absorbed into counter <anodeState>: 1 register on signal <anodeState>.
+INFO:Xst:3231 - The small RAM <Mram_SSD> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 16-word x 8-bit                     |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <SSD_REG_OUT>   |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <SSD>           |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3231 - The small RAM <Mram_anodeState[1]_GND_1_o_wide_mux_40_OUT> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 4-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <anodeState>    |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
 Unit <led_Mod> synthesized (advanced).
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Counters                                             : 1
+# RAMs                                                 : 2
+ 16x8-bit single-port distributed Read Only RAM        : 1
+ 4x4-bit single-port distributed Read Only RAM         : 1
+# Counters                                             : 3
+ 11-bit up counter                                     : 1
+ 2-bit up counter                                      : 1
  29-bit up counter                                     : 1
+# Registers                                            : 8
+ Flip-Flops                                            : 8
+# Multiplexers                                         : 3
+ 4-bit 2-to-1 multiplexer                              : 1
+ 4-bit 3-to-1 multiplexer                              : 1
+ 4-bit 4-to-1 multiplexer                              : 1
 
 =========================================================================
 
@@ -176,8 +231,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 29
- Flip-Flops                                            : 29
+# Registers                                            : 50
+ Flip-Flops                                            : 50
 
 =========================================================================
 
@@ -200,20 +255,24 @@ Top Level Output File Name         : led_Mod.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 89
+# BELS                             : 156
 #      GND                         : 1
-#      INV                         : 2
-#      LUT1                        : 28
-#      MUXCY                       : 28
+#      INV                         : 3
+#      LUT1                        : 38
+#      LUT2                        : 16
+#      LUT4                        : 7
+#      LUT6                        : 12
+#      MUXCY                       : 38
 #      VCC                         : 1
-#      XORCY                       : 29
-# FlipFlops/Latches                : 29
-#      FDE                         : 29
+#      XORCY                       : 40
+# FlipFlops/Latches                : 50
+#      FD                          : 19
+#      FDE                         : 31
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 9
-#      IBUF                        : 1
-#      OBUF                        : 8
+# IO Buffers                       : 30
+#      IBUF                        : 10
+#      OBUF                        : 20
 
 Device utilization summary:
 ---------------------------
@@ -222,20 +281,20 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              29  out of  18224     0%  
- Number of Slice LUTs:                   30  out of   9112     0%  
-    Number used as Logic:                30  out of   9112     0%  
+ Number of Slice Registers:              50  out of  18224     0%  
+ Number of Slice LUTs:                   76  out of   9112     0%  
+    Number used as Logic:                76  out of   9112     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     30
-   Number with an unused Flip Flop:       1  out of     30     3%  
-   Number with an unused LUT:             0  out of     30     0%  
-   Number of fully used LUT-FF pairs:    29  out of     30    96%  
-   Number of unique control sets:         1
+ Number of LUT Flip Flop pairs used:     76
+   Number with an unused Flip Flop:      26  out of     76    34%  
+   Number with an unused LUT:             0  out of     76     0%  
+   Number of fully used LUT-FF pairs:    50  out of     76    65%  
+   Number of unique control sets:         3
 
 IO Utilization: 
- Number of IOs:                          33
- Number of bonded IOBs:                  10  out of    232     4%  
+ Number of IOs:                          31
+ Number of bonded IOBs:                  31  out of    232    13%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
@@ -261,7 +320,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-x1                                 | BUFGP                  | 29    |
+x1                                 | BUFGP                  | 50    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -272,9 +331,9 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 2.199ns (Maximum Frequency: 454.783MHz)
+   Minimum period: 3.678ns (Maximum Frequency: 271.902MHz)
    Minimum input arrival time before clock: 3.577ns
-   Maximum output required time after clock: 3.634ns
+   Maximum output required time after clock: 4.821ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -283,58 +342,31 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'x1'
-  Clock period: 2.199ns (frequency: 454.783MHz)
-  Total number of paths / destination ports: 435 / 29
+  Clock period: 3.678ns (frequency: 271.902MHz)
+  Total number of paths / destination ports: 687 / 52
 -------------------------------------------------------------------------
-Delay:               2.199ns (Levels of Logic = 30)
-  Source:            counter_0 (FF)
-  Destination:       counter_28 (FF)
+Delay:               3.678ns (Levels of Logic = 3)
+  Source:            clockDivider_1 (FF)
+  Destination:       clockDivider_0 (FF)
   Source Clock:      x1 rising
   Destination Clock: x1 rising
 
-  Data Path: counter_0 to counter_28
+  Data Path: clockDivider_1 to clockDivider_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              1   0.447   0.579  counter_0 (counter_0)
-     INV:I->O              1   0.206   0.000  Mcount_counter_lut<0>_INV_0 (Mcount_counter_lut<0>)
-     MUXCY:S->O            1   0.172   0.000  Mcount_counter_cy<0> (Mcount_counter_cy<0>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<1> (Mcount_counter_cy<1>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<2> (Mcount_counter_cy<2>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<3> (Mcount_counter_cy<3>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<4> (Mcount_counter_cy<4>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<5> (Mcount_counter_cy<5>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<6> (Mcount_counter_cy<6>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<7> (Mcount_counter_cy<7>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<8> (Mcount_counter_cy<8>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<9> (Mcount_counter_cy<9>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<10> (Mcount_counter_cy<10>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<11> (Mcount_counter_cy<11>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<12> (Mcount_counter_cy<12>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<13> (Mcount_counter_cy<13>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<14> (Mcount_counter_cy<14>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<15> (Mcount_counter_cy<15>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<16> (Mcount_counter_cy<16>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<17> (Mcount_counter_cy<17>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<18> (Mcount_counter_cy<18>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<19> (Mcount_counter_cy<19>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<20> (Mcount_counter_cy<20>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<21> (Mcount_counter_cy<21>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<22> (Mcount_counter_cy<22>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<23> (Mcount_counter_cy<23>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<24> (Mcount_counter_cy<24>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<25> (Mcount_counter_cy<25>)
-     MUXCY:CI->O           1   0.019   0.000  Mcount_counter_cy<26> (Mcount_counter_cy<26>)
-     MUXCY:CI->O           0   0.019   0.000  Mcount_counter_cy<27> (Mcount_counter_cy<27>)
-     XORCY:CI->O           1   0.180   0.000  Mcount_counter_xor<28> (Result<28>)
-     FDE:D                     0.102          counter_28
+     FD:C->Q               2   0.447   0.981  clockDivider_1 (clockDivider_1)
+     LUT6:I0->O            3   0.203   0.651  clockDivider[10]_PWR_1_o_equal_30_o<10>_SW0 (N0)
+     LUT6:I5->O           11   0.205   0.883  clockDivider[10]_PWR_1_o_equal_30_o<10> (clockDivider[10]_PWR_1_o_equal_30_o)
+     LUT2:I1->O            1   0.205   0.000  clockDivider_0_rstpot (clockDivider_0_rstpot)
+     FD:D                      0.102          clockDivider_0
     ----------------------------------------
-    Total                      2.199ns (1.620ns logic, 0.579ns route)
-                                       (73.7% logic, 26.3% route)
+    Total                      3.678ns (1.162ns logic, 2.516ns route)
+                                       (31.6% logic, 68.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'x1'
-  Total number of paths / destination ports: 29 / 29
+  Total number of paths / destination ports: 41 / 33
 -------------------------------------------------------------------------
 Offset:              3.577ns (Levels of Logic = 2)
   Source:            bBottom (PAD)
@@ -354,22 +386,23 @@ Offset:              3.577ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'x1'
-  Total number of paths / destination ports: 8 / 8
+  Total number of paths / destination ports: 40 / 19
 -------------------------------------------------------------------------
-Offset:              3.634ns (Levels of Logic = 1)
-  Source:            counter_28 (FF)
-  Destination:       leds<7> (PAD)
+Offset:              4.821ns (Levels of Logic = 2)
+  Source:            SSD_REG_OUT_1 (FF)
+  Destination:       SSD<6> (PAD)
   Source Clock:      x1 rising
 
-  Data Path: counter_28 to leds<7>
+  Data Path: SSD_REG_OUT_1 to SSD<6>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              2   0.447   0.616  counter_28 (counter_28)
-     OBUF:I->O                 2.571          leds_7_OBUF (leds<7>)
+     FD:C->Q               7   0.447   1.021  SSD_REG_OUT_1 (SSD_REG_OUT_1)
+     LUT4:I0->O            1   0.203   0.579  Mram_SSD61 (SSD_6_OBUF)
+     OBUF:I->O                 2.571          SSD_6_OBUF (SSD<6>)
     ----------------------------------------
-    Total                      3.634ns (3.018ns logic, 0.616ns route)
-                                       (83.0% logic, 17.0% route)
+    Total                      4.821ns (3.221ns logic, 1.600ns route)
+                                       (66.8% logic, 33.2% route)
 
 =========================================================================
 
@@ -381,20 +414,20 @@ Clock to Setup on destination clock x1
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-x1             |    2.199|         |         |         |
+x1             |    3.678|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 12.00 secs
-Total CPU time to Xst completion: 11.95 secs
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 5.29 secs
  
 --> 
 
-Total memory usage is 295156 kilobytes
+Total memory usage is 296180 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    4 (   0 filtered)
-Number of infos    :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
 

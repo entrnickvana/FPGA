@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-08-26T16:17:55</DateModified>
+  <DateModified>2017-08-29T15:10:46</DateModified>
   <ModuleName>led_Mod</ModuleName>
-  <SummaryTimeStamp>Unknown</SummaryTimeStamp>
+  <SummaryTimeStamp>2017-08-29T15:05:34</SummaryTimeStamp>
   <SavedFilePath>C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/assign1/iseconfig/led_Mod.xreport</SavedFilePath>
   <ImplementationReportsDirectory>C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/assign1\</ImplementationReportsDirectory>
   <DateInitialized>2017-08-26T00:33:03</DateInitialized>

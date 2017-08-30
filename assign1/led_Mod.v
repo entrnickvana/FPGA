@@ -23,6 +23,7 @@ module led_Mod(
 	input x1,
 	input [7:0] switches,
 	input bBottom,
+	input bLeft,
 	output [7:0] leds,
 	output [3:0] anodes,
 	output reg[7:0] SSD
@@ -31,7 +32,9 @@ module led_Mod(
 	
 	wire clock;
 	wire stopButton;
+	wire leftButton;
 	wire anode1;
+
 
 	//Create a counter which will be incremented by clock signal
 	reg [10:0] clockDivider;
@@ -74,6 +77,7 @@ module led_Mod(
 	//Bind crystal to clock
 	assign clock = x1;
 	assign stopButton = bBottom;
+	assign leftButton = bLeft;
 
 	// Bind upper bits of counter to leds
 	assign leds = counter[28:21];
@@ -135,24 +139,50 @@ module led_Mod(
 	always @(posedge clock) 
 	begin
 
-		case(anodeState)
-		2'b00:begin
-					anodesReg <= 4'b1110;
-					SSD_REG_OUT <= switches[3:0];
-			  end
-		2'b01:begin
-					anodesReg <= 4'b1101;
-					SSD_REG_OUT <= switches[7:4];
-			  end
-		2'b10:begin
-					anodesReg <= 4'b1011;		
-					SSD_REG_OUT <= 8'b00000000;
-			  end
-		2'b11:begin
-					anodesReg <= 4'b0111;
-					SSD_REG_OUT <= 8'b00000000;
-			  end
-		endcase
+		// If left button is not pressed, output switch values represented as HEX on SSD
+		if(leftButton == 1'b0)
+			begin
+				case(anodeState)
+				2'b00:begin
+							anodesReg <= 4'b1110;
+							SSD_REG_OUT <= switches[3:0];
+					  end
+				2'b01:begin
+							anodesReg <= 4'b1101;
+							SSD_REG_OUT <= switches[7:4];
+					  end
+				2'b10:begin
+							anodesReg <= 4'b1011;		
+							SSD_REG_OUT <= 8'b00000000;
+					  end
+				2'b11:begin
+							anodesReg <= 4'b0111;
+							SSD_REG_OUT <= 8'b00000000;
+					  end
+				endcase
+			end
+		else // if button is pressed, display the values of the clock counter on SSD
+			begin
+							case(anodeState)
+				2'b00:begin
+							anodesReg <= 4'b1110;
+							SSD_REG_OUT <= counter[16:13];
+					  end
+				2'b01:begin
+							anodesReg <= 4'b1101;
+							SSD_REG_OUT <= counter[20:17];
+					  end
+				2'b10:begin
+							anodesReg <= 4'b1011;		
+							SSD_REG_OUT <= counter[24:21];
+					  end
+				2'b11:begin
+							anodesReg <= 4'b0111;
+							SSD_REG_OUT <= counter[28:25];
+					  end
+				endcase
+				
+			end
 	end
 
 	// Assign register output to physical Anode pins
