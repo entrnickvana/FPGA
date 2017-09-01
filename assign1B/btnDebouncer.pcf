@@ -1,0 +1,19 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Thu Aug 31 20:10:02 2017
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "button" LOCATE = SITE "C9" LEVEL 1;
+COMP "clock" LOCATE = SITE "V10" LEVEL 1;
+COMP "btnPressed" LOCATE = SITE "T11" LEVEL 1;
+COMP "testButton" LOCATE = SITE "U16" LEVEL 1;
+TIMEGRP sys_clk_pin = BEL "smpClk" BEL "smpFreqCntr_0" BEL "smpFreqCntr_1" BEL
+        "smpFreqCntr_2" BEL "smpFreqCntr_3" BEL "smpFreqCntr_4" BEL
+        "smpFreqCntr_5" BEL "smpFreqCntr_6" BEL "smpFreqCntr_7" BEL
+        "smpFreqCntr_8" BEL "smpFreqCntr_9" BEL "smpFreqCntr_10" BEL
+        "smpFreqCntr_11" BEL "smpFreqCntr_12" BEL "smpFreqCntr_13" BEL
+        "smpFreqCntr_14" BEL "smpFreqCntr_15" BEL "smpFreqCntr_16" BEL
+        "clock_BUFGP/BUFG";
+TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 50%;
+SCHEMATIC END;
+

@@ -1,0 +1,34 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Thu Aug 31 01:21:16 2017
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "testCounter<0>" LOCATE = SITE "V16" LEVEL 1;
+COMP "testCounter<1>" LOCATE = SITE "U15" LEVEL 1;
+COMP "testCounter<2>" LOCATE = SITE "V15" LEVEL 1;
+COMP "testCounter<3>" LOCATE = SITE "M11" LEVEL 1;
+COMP "testCounter<4>" LOCATE = SITE "N11" LEVEL 1;
+COMP "testCounter<5>" LOCATE = SITE "R11" LEVEL 1;
+COMP "button" LOCATE = SITE "C9" LEVEL 1;
+COMP "clock" LOCATE = SITE "V10" LEVEL 1;
+COMP "testButton" LOCATE = SITE "U16" LEVEL 1;
+COMP "buttonState" LOCATE = SITE "T11" LEVEL 1;
+TIMEGRP sys_clk_pin = BEL "resetBtnCounter_0" BEL "resetBtnCounter_1" BEL
+        "resetBtnCounter_2" BEL "resetBtnCounter_3" BEL "resetBtnCounter_4"
+        BEL "resetBtnCounter_5" BEL "resetBtnCounter_6" BEL
+        "resetBtnCounter_7" BEL "resetBtnCounter_8" BEL "resetBtnCounter_9"
+        BEL "resetBtnCounter_10" BEL "resetBtnCounter_11" BEL
+        "resetBtnCounter_12" BEL "resetBtnCounter_13" BEL "resetBtnCounter_14"
+        BEL "resetBtnCounter_15" BEL "resetBtnCounter_16" BEL
+        "resetBtnCounter_17" BEL "testCounter_1" BEL "testCounter_5" BEL
+        "testCounter_4" BEL "buttonState" BEL "btnCounter_1" BEL
+        "btnCounter_4" BEL "btnCounter_2" BEL "btnCounter_3" BEL
+        "btnCounter_7" BEL "btnCounter_5" BEL "btnCounter_6" BEL
+        "btnCounter_10" BEL "btnCounter_8" BEL "btnCounter_9" BEL
+        "btnCounter_11" BEL "btnCounter_0" BEL "btnCounter_12" BEL
+        "btnCounter_13" BEL "btnCounter_14" BEL "btnCounter_15" BEL
+        "btnCounter_16" BEL "btnCounter_17" BEL "resetBtnCounter_14_1" BEL
+        "resetBtnCounter_15_1" BEL "clock_BUFGP/BUFG" BEL "testCounter_1_1";
+TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 50%;
+SCHEMATIC END;
+
