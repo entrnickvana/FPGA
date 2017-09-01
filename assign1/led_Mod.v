@@ -18,6 +18,17 @@
 // Additional Comments: 
 //
 
+
+/*
+	fix the wires
+	Separate into individual modules
+	add button press
+	stopwatch pause
+	stopwatch increment
+	
+
+*/
+
 //////////////////////////////////////////////////////////////////////////////////
 module led_Mod(
 	input x1,
