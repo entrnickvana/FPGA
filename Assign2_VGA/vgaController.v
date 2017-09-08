@@ -81,7 +81,7 @@ wire h_in_frame = col >= 48 && col < (48 + 640);
 wire v_in_frame = row >= 33 && row < (32 + 480);
 
 wire black = ~(h_in_frame && v_in_frame);
-wire checker = ((col & ~(10'd10))) > 10'd31 && ((row & ~(10'd10)) > 10'd23);
+wire checker = col[6] ^ row[6];
 
 wire line_ending = col == 10'd799 && pxl_ending;
 wire frame_ending = row_ending && line_ending;
@@ -92,7 +92,7 @@ wire[1:0] nxt_pxl = pxl_counter + 1'b1;
 
 wire[7:0] color = {2'b11, 3'b111, 3'b111};
 
-wire[7:0] nxt_clr = black ? 8'd0 : checker ? color : 8'd0;
+wire[7:0] nxt_clr = black ? 8'd0 : checker ? 8'd0 : color;
 
 
 /////////////////////////////  SEQUENTIAL LOGIC  /////////////////////////////////////
