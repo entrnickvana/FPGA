@@ -22,26 +22,36 @@ module top(
 	input button,
 	input clock,
 	output testButton,
-	output [5:0]leds
+	output [7:0]leds,
+	output [7:0]segOutput,
+	output [3:0]anodes
     );
 
-	parameter N = 6;
+	parameter N_count = 8;
+	parameter N_seg_7 = 4;
 
 	wire buttonW;			assign buttonW = button;
 	wire clockW;			assign clockW = clock;
-	wire testButtonW;
 	wire db_to_counter;		
-	wire [N-1:0] ledsW;		assign leds = ledsW;
+
+	wire [7:0]segMod_to_segOut;		assign segOutput = segMod_to_segOut;
+
+	// Output Assignment
+	wire [N_count-1:0] ledsW;		assign leds = ledsW;
+
+	assign anodes = 4'b1110;
 
 //	module btnDebouncer(	input button,	input clock,	output reg btnPressed,	output testButton);
-	btnDebouncer bDown(		buttonW, 		clockW,			db_to_counter, 			testButtonW);
+	btnDebouncer bDown(		buttonW, 		clockW,			db_to_counter);
 
 
 //	module NbitCounter #(parameter N = 1)(	input buttonReg,	input clock,	output[N-1:0] counter );
-	Nbit_Counter #(.N(N)) c4bit(			db_to_counter, 		clock, 			ledsW); 
+	Nbit_Counter #(.N(N_count)) c8bit(		db_to_counter, 		clock, 			ledsW); 
 
-//  Output Assignments
-	assign leds[N-1:0] = ledsW;
+//  4 SSD
+//	module seg_7( input [3:0] selectHex,	output [7:0] segVal    );
+	seg_7 	seg1( ledsW[3:0], 				segMod_to_segOut       );	
+
 
 
 

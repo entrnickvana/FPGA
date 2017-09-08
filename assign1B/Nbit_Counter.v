@@ -36,7 +36,8 @@ module Nbit_Counter #(parameter N = 1)(
 	begin
 		if(buttonReg)
 			begin
-				counterReg <= counterReg + 1'b1;			
+				counterReg <= counterReg + 1'b1;	
+
 			end
 		else 
 			begin

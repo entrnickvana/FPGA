@@ -61,14 +61,16 @@ module testTop;
 		#100;
 
 
-		always 
-		#10 clock = ~clock;
+		
+		forever #10 clock = !clock;
 
 
 
 
 		int i;
-		int cycles = 10000;
+		int cycles;
+
+		cycles = 10000;
 		int rand;
 
 		for(i = 0; i < cycles; i = i + 1)

@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\Assign2_VGA\vgaController.ncd
+OUTFILE=C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\Assign2_VGA\vgaController.bit
+FAMILY=Spartan6
+PART=xc6slx16-2csg324
+WORKINGDIR=C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\Assign2_VGA
+LICENSE=WebPack
+USER_INFO=211140541_0_0_377

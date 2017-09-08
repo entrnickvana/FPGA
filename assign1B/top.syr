@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.29 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.29 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Reading design: top.prj
 
@@ -105,6 +105,8 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
+Analyzing Verilog file "C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\assign1B\seg_7.v" into library work
+Parsing module <seg_7>.
 Analyzing Verilog file "C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\assign1B\Nbit_Counter.v" into library work
 Parsing module <Nbit_Counter>.
 Analyzing Verilog file "C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\assign1B\btnDebouncer.v" into library work
@@ -119,9 +121,10 @@ Parsing module <top>.
 Elaborating module <top>.
 
 Elaborating module <btnDebouncer>.
-WARNING:HDLCompiler:1127 - "C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\assign1B\top.v" Line 37: Assignment to testButtonW ignored, since the identifier is never used
 
-Elaborating module <Nbit_Counter(N=6)>.
+Elaborating module <Nbit_Counter(N=8)>.
+
+Elaborating module <seg_7>.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -129,50 +132,50 @@ Elaborating module <Nbit_Counter(N=6)>.
 
 Synthesizing Unit <top>.
     Related source file is "C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\assign1B\top.v".
-        N = 6
-INFO:Xst:3210 - "C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\assign1B\top.v" line 37: Output port <testButton1> of the instance <bDown> is unconnected or connected to loadless signal.
+        N_count = 8
+        N_seg_7 = 4
     Summary:
 	no macro.
 Unit <top> synthesized.
 
 Synthesizing Unit <btnDebouncer>.
     Related source file is "C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\assign1B\btnDebouncer.v".
-    Found 17-bit register for signal <smpFreqCntr>.
-    Found 1-bit register for signal <btnPressed1>.
-    Found 32-bit register for signal <satCounter>.
-    Found 1-bit register for signal <smpClk>.
-    Found 17-bit adder for signal <smpFreqCntr[16]_GND_2_o_add_2_OUT> created at line 53.
-    Found 17-bit comparator greater for signal <n0001> created at line 45
+    Found 1-bit register for signal <btnPressedReg>.
+    Found 17-bit register for signal <satCounter>.
+    Found 17-bit register for signal <dwnSmpClk>.
     Summary:
-	inferred   1 Adder/Subtractor(s).
-	inferred  51 D-type flip-flop(s).
-	inferred   1 Comparator(s).
+	inferred  35 D-type flip-flop(s).
 Unit <btnDebouncer> synthesized.
 
 Synthesizing Unit <Nbit_Counter>.
     Related source file is "C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\assign1B\Nbit_Counter.v".
-        N = 6
-    Found 6-bit register for signal <counterReg>.
-    Found 6-bit adder for signal <counterReg[5]_GND_3_o_add_2_OUT> created at line 39.
+        N = 8
+    Found 8-bit register for signal <counterReg>.
+    Found 8-bit adder for signal <counterReg[7]_GND_3_o_add_2_OUT> created at line 39.
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred   6 D-type flip-flop(s).
+	inferred   8 D-type flip-flop(s).
 Unit <Nbit_Counter> synthesized.
+
+Synthesizing Unit <seg_7>.
+    Related source file is "C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\assign1B\seg_7.v".
+    Found 16x8-bit Read Only RAM for signal <segValReg>
+    Summary:
+	inferred   1 RAM(s).
+Unit <seg_7> synthesized.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 2
- 17-bit adder                                          : 1
- 6-bit adder                                           : 1
-# Registers                                            : 5
- 1-bit register                                        : 2
- 17-bit register                                       : 1
- 32-bit register                                       : 1
- 6-bit register                                        : 1
-# Comparators                                          : 1
- 17-bit comparator greater                             : 1
+# RAMs                                                 : 1
+ 16x8-bit single-port Read Only RAM                    : 1
+# Adders/Subtractors                                   : 1
+ 8-bit adder                                           : 1
+# Registers                                            : 4
+ 1-bit register                                        : 1
+ 17-bit register                                       : 2
+ 8-bit register                                        : 1
 
 =========================================================================
 
@@ -180,36 +183,135 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
+WARNING:Xst:1426 - The value init of the FF/Latch satCounter_0 hinder the constant cleaning in the block bDown.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1293 - FF/Latch <dwnSmpClk_4> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <dwnSmpClk_5> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <dwnSmpClk_6> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <dwnSmpClk_7> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <dwnSmpClk_8> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <dwnSmpClk_9> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <dwnSmpClk_10> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <dwnSmpClk_11> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <dwnSmpClk_12> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <dwnSmpClk_13> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <dwnSmpClk_14> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <dwnSmpClk_15> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <dwnSmpClk_16> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <counterReg_0> has a constant value of 0 in block <c8bit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <counterReg_1> has a constant value of 0 in block <c8bit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <counterReg_2> has a constant value of 0 in block <c8bit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <counterReg_3> has a constant value of 0 in block <c8bit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <counterReg_4> has a constant value of 0 in block <c8bit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <counterReg_5> has a constant value of 0 in block <c8bit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <counterReg_6> has a constant value of 0 in block <c8bit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <counterReg_7> has a constant value of 0 in block <c8bit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <satCounter_0> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <satCounter_16> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <btnPressedReg> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <dwnSmpClk_3> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <dwnSmpClk_2> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <dwnSmpClk_0> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <dwnSmpClk_1> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_1> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_2> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_3> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_4> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_5> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_6> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_7> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_8> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_9> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_10> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_11> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_12> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_13> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_14> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_15> has a constant value of 0 in block <bDown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1290 - Hierarchical block <bDown> is unconnected in block <top>.
+   It will be removed from the design.
 
 Synthesizing (advanced) Unit <Nbit_Counter>.
 The following registers are absorbed into counter <counterReg>: 1 register on signal <counterReg>.
 Unit <Nbit_Counter> synthesized (advanced).
 
-Synthesizing (advanced) Unit <btnDebouncer>.
-The following registers are absorbed into counter <smpFreqCntr>: 1 register on signal <smpFreqCntr>.
-Unit <btnDebouncer> synthesized (advanced).
+Synthesizing (advanced) Unit <seg_7>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_segValReg> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 16-word x 8-bit                     |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <selectHex>     |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <segValReg>     |          |
+    -----------------------------------------------------------------------
+Unit <seg_7> synthesized (advanced).
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Counters                                             : 2
- 17-bit up counter                                     : 1
- 6-bit up counter                                      : 1
-# Registers                                            : 34
- Flip-Flops                                            : 34
-# Comparators                                          : 1
- 17-bit comparator greater                             : 1
+# RAMs                                                 : 1
+ 16x8-bit single-port distributed Read Only RAM        : 1
+# Counters                                             : 1
+ 8-bit up counter                                      : 1
+# Registers                                            : 35
+ Flip-Flops                                            : 35
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+WARNING:Xst:1426 - The value init of the FF/Latch satCounter_0 hinder the constant cleaning in the block btnDebouncer.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1293 - FF/Latch <dwnSmpClk_0> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <dwnSmpClk_1> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <dwnSmpClk_2> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <dwnSmpClk_3> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <dwnSmpClk_4> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <dwnSmpClk_5> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <dwnSmpClk_6> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <dwnSmpClk_7> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <dwnSmpClk_8> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <dwnSmpClk_9> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <dwnSmpClk_10> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <dwnSmpClk_11> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <dwnSmpClk_12> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <dwnSmpClk_13> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <dwnSmpClk_14> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <dwnSmpClk_15> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <dwnSmpClk_16> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_0> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <btnPressedReg> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_16> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_1> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_2> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_3> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_4> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_5> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_6> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_7> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_8> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_9> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_10> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_11> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_12> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_13> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_14> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <satCounter_15> has a constant value of 0 in block <btnDebouncer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <c8bit/counterReg_0> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <c8bit/counterReg_1> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <c8bit/counterReg_2> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <c8bit/counterReg_3> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <c8bit/counterReg_4> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <c8bit/counterReg_5> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <c8bit/counterReg_6> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <c8bit/counterReg_7> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <top> ...
-
-Optimizing unit <btnDebouncer> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -220,10 +322,7 @@ Final Macro Processing ...
 =========================================================================
 Final Register Report
 
-Macro Statistics
-# Registers                                            : 57
- Flip-Flops                                            : 57
-
+Found no macro
 =========================================================================
 
 =========================================================================
@@ -245,27 +344,11 @@ Top Level Output File Name         : top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 121
+# BELS                             : 2
 #      GND                         : 1
-#      INV                         : 2
-#      LUT1                        : 16
-#      LUT2                        : 23
-#      LUT3                        : 32
-#      LUT4                        : 1
-#      LUT5                        : 1
-#      LUT6                        : 11
-#      MUXCY                       : 16
 #      VCC                         : 1
-#      XORCY                       : 17
-# FlipFlops/Latches                : 57
-#      FD                          : 51
-#      FDE                         : 6
-# Clock Buffers                    : 2
-#      BUFG                        : 1
-#      BUFGP                       : 1
-# IO Buffers                       : 7
-#      IBUF                        : 1
-#      OBUF                        : 6
+# IO Buffers                       : 20
+#      OBUF                        : 20
 
 Device utilization summary:
 ---------------------------
@@ -274,23 +357,19 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              57  out of  18224     0%  
- Number of Slice LUTs:                   86  out of   9112     0%  
-    Number used as Logic:                86  out of   9112     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     86
-   Number with an unused Flip Flop:      29  out of     86    33%  
-   Number with an unused LUT:             0  out of     86     0%  
-   Number of fully used LUT-FF pairs:    57  out of     86    66%  
-   Number of unique control sets:         3
+ Number of LUT Flip Flop pairs used:      0
+   Number with an unused Flip Flop:       0  out of      0         
+   Number with an unused LUT:             0  out of      0         
+   Number of fully used LUT-FF pairs:     0  out of      0         
+   Number of unique control sets:         0
 
 IO Utilization: 
- Number of IOs:                           9
- Number of bonded IOBs:                   8  out of    232     3%  
+ Number of IOs:                          23
+ Number of bonded IOBs:                  20  out of    232     8%  
 
 Specific Feature Utilization:
- Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
 
 ---------------------------
 Partition Resource Summary:
@@ -310,12 +389,7 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
------------------------------------+------------------------+-------+
-Clock Signal                       | Clock buffer(FF name)  | Load  |
------------------------------------+------------------------+-------+
-clock                              | BUFGP                  | 24    |
-bDown/smpClk                       | BUFG                   | 33    |
------------------------------------+------------------------+-------+
+No clock signals found in this design
 
 Asynchronous Control Signals Information:
 ----------------------------------------
@@ -325,9 +399,9 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 4.110ns (Maximum Frequency: 243.291MHz)
-   Minimum input arrival time before clock: 2.937ns
-   Maximum output required time after clock: 3.791ns
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -335,125 +409,21 @@ Timing Details:
 All values displayed in nanoseconds (ns)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'clock'
-  Clock period: 3.788ns (frequency: 263.971MHz)
-  Total number of paths / destination ports: 391 / 24
--------------------------------------------------------------------------
-Delay:               3.788ns (Levels of Logic = 3)
-  Source:            bDown/smpFreqCntr_10 (FF)
-  Destination:       bDown/smpFreqCntr_16 (FF)
-  Source Clock:      clock rising
-  Destination Clock: clock rising
-
-  Data Path: bDown/smpFreqCntr_10 to bDown/smpFreqCntr_16
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FD:C->Q               2   0.447   0.981  bDown/smpFreqCntr_10 (bDown/smpFreqCntr_10)
-     LUT6:I0->O            2   0.203   0.617  bDown/n0001_inv2 (bDown/n0001_inv2)
-     LUT6:I5->O           17   0.205   1.028  bDown/n0001_inv3 (bDown/n0001_inv)
-     LUT2:I1->O            1   0.205   0.000  bDown/smpFreqCntr_16_rstpot (bDown/smpFreqCntr_16_rstpot)
-     FD:D                      0.102          bDown/smpFreqCntr_16
-    ----------------------------------------
-    Total                      3.788ns (1.162ns logic, 2.626ns route)
-                                       (30.7% logic, 69.3% route)
-
-=========================================================================
-Timing constraint: Default period analysis for Clock 'bDown/smpClk'
-  Clock period: 4.110ns (frequency: 243.291MHz)
-  Total number of paths / destination ports: 1087 / 33
--------------------------------------------------------------------------
-Delay:               4.110ns (Levels of Logic = 3)
-  Source:            bDown/satCounter_30 (FF)
-  Destination:       bDown/satCounter_31 (FF)
-  Source Clock:      bDown/smpClk rising
-  Destination Clock: bDown/smpClk rising
-
-  Data Path: bDown/satCounter_30 to bDown/satCounter_31
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FD:C->Q               2   0.447   0.961  bDown/satCounter_30 (bDown/satCounter_30)
-     LUT6:I1->O            2   0.203   0.961  bDown/satCounter[31]_PWR_2_o_equal_7_o<31>3 (bDown/satCounter[31]_PWR_2_o_equal_7_o<31>2)
-     LUT6:I1->O           17   0.203   1.028  bDown/satCounter[31]_PWR_2_o_equal_7_o<31>7 (bDown/satCounter[31]_PWR_2_o_equal_7_o)
-     LUT3:I2->O            1   0.205   0.000  bDown/satCounter_31_rstpot (bDown/satCounter_31_rstpot)
-     FD:D                      0.102          bDown/satCounter_31
-    ----------------------------------------
-    Total                      4.110ns (1.160ns logic, 2.950ns route)
-                                       (28.2% logic, 71.8% route)
-
-=========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'bDown/smpClk'
-  Total number of paths / destination ports: 33 / 33
--------------------------------------------------------------------------
-Offset:              2.937ns (Levels of Logic = 2)
-  Source:            button (PAD)
-  Destination:       bDown/satCounter_31 (FF)
-  Destination Clock: bDown/smpClk rising
-
-  Data Path: button to bDown/satCounter_31
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O            33   1.222   1.410  button_IBUF (button_IBUF)
-     LUT3:I1->O            1   0.203   0.000  bDown/satCounter_31_rstpot (bDown/satCounter_31_rstpot)
-     FD:D                      0.102          bDown/satCounter_31
-    ----------------------------------------
-    Total                      2.937ns (1.527ns logic, 1.410ns route)
-                                       (52.0% logic, 48.0% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'clock'
-  Total number of paths / destination ports: 6 / 6
--------------------------------------------------------------------------
-Offset:              3.791ns (Levels of Logic = 1)
-  Source:            c4bit/counterReg_0 (FF)
-  Destination:       leds<0> (PAD)
-  Source Clock:      clock rising
-
-  Data Path: c4bit/counterReg_0 to leds<0>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDE:C->Q              7   0.447   0.773  c4bit/counterReg_0 (c4bit/counterReg_0)
-     OBUF:I->O                 2.571          leds_0_OBUF (leds<0>)
-    ----------------------------------------
-    Total                      3.791ns (3.018ns logic, 0.773ns route)
-                                       (79.6% logic, 20.4% route)
-
-=========================================================================
 
 Cross Clock Domains Report:
 --------------------------
 
-Clock to Setup on destination clock bDown/smpClk
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-bDown/smpClk   |    4.110|         |         |         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock clock
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-bDown/smpClk   |    1.513|         |         |         |
-clock          |    3.788|         |         |         |
----------------+---------+---------+---------+---------+
-
 =========================================================================
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 7.47 secs
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 5.06 secs
  
 --> 
 
 Total memory usage is 296180 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    1 (   0 filtered)
+Number of warnings :   89 (   0 filtered)
 Number of infos    :    1 (   0 filtered)
 

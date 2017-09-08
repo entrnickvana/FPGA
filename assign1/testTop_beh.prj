@@ -1,0 +1,3 @@
+verilog work "led_Mod.v"
+verilog work "testTop.v"
+verilog work "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"

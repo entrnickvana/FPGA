@@ -1,28 +1,29 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Thu Aug 31 22:55:25 2017
+// Written by: Map P.20131013 on Fri Sep 01 10:50:23 2017
 //! **************************************************************************
 
 SCHEMATIC START;
+COMP "segOutput<0>" LOCATE = SITE "T17" LEVEL 1;
+COMP "segOutput<1>" LOCATE = SITE "T18" LEVEL 1;
+COMP "segOutput<2>" LOCATE = SITE "U17" LEVEL 1;
+COMP "segOutput<3>" LOCATE = SITE "U18" LEVEL 1;
+COMP "segOutput<4>" LOCATE = SITE "M14" LEVEL 1;
+COMP "segOutput<5>" LOCATE = SITE "N14" LEVEL 1;
+COMP "segOutput<6>" LOCATE = SITE "L14" LEVEL 1;
+COMP "segOutput<7>" LOCATE = SITE "M13" LEVEL 1;
 COMP "leds<0>" LOCATE = SITE "U16" LEVEL 1;
+COMP "anodes<0>" LOCATE = SITE "N16" LEVEL 1;
 COMP "leds<1>" LOCATE = SITE "V16" LEVEL 1;
+COMP "anodes<1>" LOCATE = SITE "N15" LEVEL 1;
 COMP "leds<2>" LOCATE = SITE "U15" LEVEL 1;
+COMP "anodes<2>" LOCATE = SITE "P18" LEVEL 1;
 COMP "leds<3>" LOCATE = SITE "V15" LEVEL 1;
+COMP "anodes<3>" LOCATE = SITE "P17" LEVEL 1;
 COMP "leds<4>" LOCATE = SITE "M11" LEVEL 1;
 COMP "leds<5>" LOCATE = SITE "N11" LEVEL 1;
-COMP "button" LOCATE = SITE "C9" LEVEL 1;
+COMP "leds<6>" LOCATE = SITE "R11" LEVEL 1;
+COMP "leds<7>" LOCATE = SITE "T11" LEVEL 1;
 COMP "clock" LOCATE = SITE "V10" LEVEL 1;
-TIMEGRP sys_clk_pin = BEL "c4bit/counterReg_0" BEL "c4bit/counterReg_1" BEL
-        "c4bit/counterReg_2" BEL "c4bit/counterReg_3" BEL "c4bit/counterReg_4"
-        BEL "c4bit/counterReg_5" BEL "bDown/smpClk" BEL "bDown/smpFreqCntr_16"
-        BEL "bDown/smpFreqCntr_15" BEL "bDown/smpFreqCntr_14" BEL
-        "bDown/smpFreqCntr_13" BEL "bDown/smpFreqCntr_12" BEL
-        "bDown/smpFreqCntr_11" BEL "bDown/smpFreqCntr_10" BEL
-        "bDown/smpFreqCntr_9" BEL "bDown/smpFreqCntr_8" BEL
-        "bDown/smpFreqCntr_7" BEL "bDown/smpFreqCntr_6" BEL
-        "bDown/smpFreqCntr_5" BEL "bDown/smpFreqCntr_4" BEL
-        "bDown/smpFreqCntr_3" BEL "bDown/smpFreqCntr_2" BEL
-        "bDown/smpFreqCntr_1" BEL "bDown/smpFreqCntr_0" BEL
-        "clock_BUFGP/BUFG";
-TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 50%;
+COMP "button" LOCATE = SITE "C9" LEVEL 1;
 SCHEMATIC END;
 

@@ -1,3 +1,4 @@
+verilog work "seg_7.v"
 verilog work "Nbit_Counter.v"
 verilog work "btnDebouncer.v"
 verilog work "top.v"

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-08-31T21:49:01</DateModified>
+  <DateModified>2017-09-01T11:20:54</DateModified>
   <ModuleName>top</ModuleName>
-  <SummaryTimeStamp>2017-08-31T21:42:59</SummaryTimeStamp>
+  <SummaryTimeStamp>2017-08-31T22:56:04</SummaryTimeStamp>
   <SavedFilePath>C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/assign1B/iseconfig/top.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/assign1B</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/assign1B\</ImplementationReportsDirectory>
   <DateInitialized>2017-08-31T21:49:01</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

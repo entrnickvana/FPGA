@@ -1,0 +1,25 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Thu Sep 07 17:44:16 2017
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "clk" LOCATE = SITE "V10" LEVEL 1;
+COMP "vgaGreen<0>" LOCATE = SITE "P8" LEVEL 1;
+COMP "vgaGreen<1>" LOCATE = SITE "T6" LEVEL 1;
+COMP "vgaGreen<2>" LOCATE = SITE "V6" LEVEL 1;
+COMP "v_sync" LOCATE = SITE "P7" LEVEL 1;
+COMP "vgaBlue<0>" LOCATE = SITE "R7" LEVEL 1;
+COMP "vgaBlue<1>" LOCATE = SITE "T7" LEVEL 1;
+COMP "h_sync" LOCATE = SITE "N6" LEVEL 1;
+COMP "vgaRed<0>" LOCATE = SITE "U7" LEVEL 1;
+COMP "vgaRed<1>" LOCATE = SITE "V7" LEVEL 1;
+COMP "vgaRed<2>" LOCATE = SITE "N7" LEVEL 1;
+TIMEGRP sys_clk_pin = BEL "vgaRed_0" BEL "h_sync" BEL "v_sync" BEL
+        "pxl_counter_0" BEL "pxl_counter_1" BEL "row_1" BEL "row_2" BEL
+        "row_3" BEL "row_4" BEL "row_5" BEL "row_6" BEL "row_7" BEL "row_8"
+        BEL "row_9" BEL "col_0" BEL "col_1" BEL "col_2" BEL "col_3" BEL
+        "col_4" BEL "col_5" BEL "col_6" BEL "col_7" BEL "col_8" BEL "col_9"
+        BEL "row_0" BEL "clk_BUFGP/BUFG";
+TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 50%;
+SCHEMATIC END;
+

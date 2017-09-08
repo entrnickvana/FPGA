@@ -21,62 +21,59 @@
 module btnDebouncer(
 	input button1,
 	input clock1,
-	output reg btnPressed1,
-	output testButton1
+	output btnPressed1
     );
 
-	reg[31:0] satCounter; 		initial satCounter = 32'd0;
-	reg[16:0] smpFreqCntr; 		initial smpFreqCntr = 17'd0; 
-	reg smpClk;					initial smpClk = 1'b0;
+	reg[16:0] dwnSmpClk;  initial dwnSmpClk = 17'd0;
+	reg[16:0] satCounter; initial satCounter = 17'd0;
+	reg btnPressedReg;    initial btnPressedReg = 1'b0;
 
-	assign testButton1 = button1;
-
-	/*////////////////////////////////////////////////////////////////////////////////////// 		
-			Determine appropriate sample frequency for button1
-
-			100Mhz/x = 100khz => 100Mhz/1kz = x => x = 100khz where sample freq = x = 100khz
-			
-			100khz reg = log2(100 x 10^3) + 1 = 17
-	*////////////////////////////////////////////////////////////////////////////////////////
-
+	assign btnPressed1 = btnPressedReg;
+	
 	always @(posedge clock1)
 	begin
-		// Sample clock pulse
-		if(smpFreqCntr >= 17'd100000) 
-			begin
-				smpClk <= ~smpClk;
-				smpFreqCntr <= 17'd0;
-			end
-		else
-			begin 						
-				smpClk <= smpClk;
-				smpFreqCntr <= smpFreqCntr + 1'b1;
-			end
-	end
 
-	// 1ms sample rate => sample freq = 1kz, button1 press must last 8ms
-	always @(posedge smpClk)
-	begin
-		if (button1) 
+		// Divide 100Mhz/100000 = 1khz
+		if(dwnSmpClk == 17'd100000)  ////////////////// 1khz ///////////////////////////////////
 			begin
 
-				// Check if button1 has been pressed for 8ms, then update btnPressed
-				if(satCounter == 32'b11111111111111111111111111111111)
+
+				dwnSmpClk <= 17'd0; // Reset at 100,000 cycles
+				
+
+
+				if(button1 == 1'b1)  //// Is button pressed?
 					begin
-						btnPressed1 <= 1;
-						satCounter <= 32'd0;
+
+						if(satCounter == 16'b1111111111111111) /// held for 1ms * 16 = 16ms
+							begin
+								btnPressedReg <= 1'b1; // btnPressed for 1 100Mhz cycle
+
+								//Flush sat counter, btnPress recorded
+								satCounter <= 16'd0;	
+							end
+						else 								   /// Not yet 1ms * 16 = 16ms
+							begin
+								btnPressedReg <= 1'b0;
+								satCounter <= {satCounter[14:0], 1'b1};
+							end
+		
 					end
-				else
+				else 										   /// Button not pressed, satCounter is flushed, btnPress LO
 					begin
-						btnPressed1 <= 0;					
-						satCounter <= {satCounter[30:0], 1'b1};
+							satCounter <= 16'd0;			
+							btnPressedReg <= 1'b0;
 					end
-			end		
-		else    // button1 is not being pressed
-			begin
-				btnPressed1 <= 0;
-				satCounter <= 32'd0;
+			///////////////////////////////////////////////////////////
+
 			end
+		else 	////////////////// 100Mhz ///////////////////////////////////
+			begin
+				dwnSmpClk <= dwnSmpClk +1'b0;	
+				satCounter <= satCounter;
+				btnPressedReg <= 0;
+			end
+
 	end
 
 endmodule

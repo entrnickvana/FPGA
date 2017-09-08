@@ -1,0 +1,150 @@
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/vgaController.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 vgaController.ngc vgaController.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vgaController_map.ncd vgaController.ngd vgaController.pcf 
+par -w -intstyle ise -ol high -mt off vgaController_map.ncd vgaController.ncd vgaController.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml vgaController.twx vgaController.ncd -o vgaController.twr vgaController.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f vgaController.ut vgaController.ncd 

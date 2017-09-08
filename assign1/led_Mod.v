@@ -35,6 +35,7 @@ module led_Mod(
 	input [7:0] switches,
 	input bBottom,
 	input bLeft,
+	input bRight,
 	output [7:0] leds,
 	output [3:0] anodes,
 	output reg[7:0] SSD
@@ -49,10 +50,15 @@ module led_Mod(
 
 	//Create a counter which will be incremented by clock signal
 	reg [10:0] clockDivider;
-	reg [28:0] counter;
+	reg [28:0]counter;		initial counter = 28'd0;
 	reg [3:0] anodesReg;
 	reg [3:0] SSD_REG_OUT;  
 	reg [1:0] anodeState;
+	reg [19:0] dwnSmplCntr; 	initial dwnSmplCntr = 20'd0;
+	reg [19:0] rstCntr; 	initial rstCntr = 20'd0;
+
+	reg buttonPress;			initial buttonPress = 1'b0;
+	//reg dwnSmplClk;				initial dwnSmplClk = 1'b0;
 
 	/*  For Future use with text
 
@@ -108,13 +114,13 @@ module led_Mod(
 	always@(posedge clock)
 	begin
 
-		if(stopButton == 1'b1) 
+		if(stopButton == 1'b1  || buttonPress == 1'b1) 
 			begin
-				counter <= counter;			
+				counter <= counter + 1'b1;			
 			end
 		else 
 			begin
-				counter <= counter + 1'b1;			
+				counter <= counter;			
 			end
 
 	end
@@ -151,7 +157,7 @@ module led_Mod(
 	begin
 
 		// If left button is not pressed, output switch values represented as HEX on SSD
-		if(leftButton == 1'b0)
+		if(leftButton == 1'b1)
 			begin
 				case(anodeState)
 				2'b00:begin
@@ -195,6 +201,52 @@ module led_Mod(
 				
 			end
 	end
+
+
+	//////////////////////////////////////  DEBOUNCER  ////////////////////////////////////////////
+
+
+	// b11110100001001000000
+	always @(posedge clock)
+	begin
+		
+		if(bRight == 1'b1)
+			begin
+
+				if(rstCntr >= 20'd1000000)
+					begin
+
+						if(dwnSmplCntr >= 20'd500000)
+							begin
+								buttonPress <= 1'b1;
+								dwnSmplCntr <= 20'd0;
+								rstCntr <= 20'b0;
+							end
+						else 
+							begin
+								buttonPress <= 1'b0;
+								dwnSmplCntr <= 20'd0;
+								rstCntr <= 20'b0;								
+							end
+					end
+				else 
+					begin
+						buttonPress <= 1'b0;
+						dwnSmplCntr <= dwnSmplCntr + 1'b1;
+						rstCntr <= rstCntr + 1'b1;								
+					end
+				
+			end
+		else 
+			begin
+				dwnSmplCntr <= dwnSmplCntr;
+				buttonPress <= 1'b0;
+				rstCntr <= 20'b1;
+			end
+
+	end
+
+
 
 	// Assign register output to physical Anode pins
 	assign anodes = anodesReg;	

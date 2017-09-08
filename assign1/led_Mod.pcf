@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Wed Aug 30 09:27:10 2017
+// Written by: Map P.20131013 on Fri Sep 01 14:28:50 2017
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -23,6 +23,7 @@ COMP "leds<4>" LOCATE = SITE "M11" LEVEL 1;
 COMP "leds<5>" LOCATE = SITE "N11" LEVEL 1;
 COMP "leds<6>" LOCATE = SITE "R11" LEVEL 1;
 COMP "leds<7>" LOCATE = SITE "T11" LEVEL 1;
+COMP "bRight" LOCATE = SITE "D9" LEVEL 1;
 COMP "bBottom" LOCATE = SITE "C9" LEVEL 1;
 COMP "bLeft" LOCATE = SITE "C4" LEVEL 1;
 COMP "SSD<0>" LOCATE = SITE "T17" LEVEL 1;
@@ -44,11 +45,22 @@ TIMEGRP sys_clk_pin = BEL "anodesReg_0" BEL "anodesReg_1" BEL "anodesReg_2"
         "counter_18" BEL "counter_19" BEL "counter_20" BEL "counter_21" BEL
         "counter_22" BEL "counter_23" BEL "counter_24" BEL "counter_25" BEL
         "counter_26" BEL "counter_27" BEL "counter_28" BEL "anodeState_0" BEL
-        "anodeState_1" BEL "clockDivider_0" BEL "clockDivider_1" BEL
-        "clockDivider_2" BEL "clockDivider_3" BEL "clockDivider_4" BEL
-        "clockDivider_5" BEL "clockDivider_6" BEL "clockDivider_7" BEL
-        "clockDivider_8" BEL "clockDivider_9" BEL "clockDivider_10" BEL
-        "x1_BUFGP/BUFG";
+        "anodeState_1" BEL "buttonPress" BEL "rstCntr_0" BEL "dwnSmplCntr_0"
+        BEL "rstCntr_1" BEL "rstCntr_2" BEL "rstCntr_3" BEL "rstCntr_4" BEL
+        "rstCntr_5" BEL "rstCntr_6" BEL "rstCntr_7" BEL "rstCntr_8" BEL
+        "rstCntr_9" BEL "rstCntr_10" BEL "rstCntr_11" BEL "rstCntr_12" BEL
+        "rstCntr_13" BEL "rstCntr_14" BEL "rstCntr_15" BEL "rstCntr_16" BEL
+        "rstCntr_17" BEL "rstCntr_18" BEL "rstCntr_19" BEL "dwnSmplCntr_1" BEL
+        "dwnSmplCntr_2" BEL "dwnSmplCntr_3" BEL "dwnSmplCntr_4" BEL
+        "dwnSmplCntr_5" BEL "dwnSmplCntr_6" BEL "dwnSmplCntr_7" BEL
+        "dwnSmplCntr_8" BEL "dwnSmplCntr_9" BEL "dwnSmplCntr_10" BEL
+        "dwnSmplCntr_11" BEL "dwnSmplCntr_12" BEL "dwnSmplCntr_13" BEL
+        "dwnSmplCntr_14" BEL "dwnSmplCntr_15" BEL "dwnSmplCntr_16" BEL
+        "dwnSmplCntr_17" BEL "dwnSmplCntr_18" BEL "dwnSmplCntr_19" BEL
+        "clockDivider_0" BEL "clockDivider_1" BEL "clockDivider_2" BEL
+        "clockDivider_3" BEL "clockDivider_4" BEL "clockDivider_5" BEL
+        "clockDivider_6" BEL "clockDivider_7" BEL "clockDivider_8" BEL
+        "clockDivider_9" BEL "clockDivider_10" BEL "x1_BUFGP/BUFG";
 TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 50%;
 SCHEMATIC END;
 
