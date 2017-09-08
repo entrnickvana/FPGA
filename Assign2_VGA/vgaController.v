@@ -70,9 +70,9 @@ initial v_sync = 1'b1;
 //////////////////////////////  NEXT CYCLE COMBINATORIAL LOGIC //////////////////////
 
 						 // 704
-wire nxt_hsync = ~(col >= (47  + 640 + 16));
+wire nxt_hsync = ~(col > (47  + 640 + 16));
 						 // 523
-wire nxt_vsync = ~(row >= (32  + 480 +  10));
+wire nxt_vsync = ~(row > (32  + 480 +  10));
 				
 wire[9:0] nxt_col = pxl_ending ? ((col == 10'd799) ? 10'd0 : col + 1'b1) : col;
 wire[9:0] nxt_row = line_ending ? ((row == 10'd524) ? 10'd0 : row + 1'b1) : row;
@@ -90,7 +90,7 @@ wire row_ending = row == 10'd524;
 
 wire[1:0] nxt_pxl = pxl_counter + 1'b1;
 
-wire[7:0] color = {2'b11, 3'b111, 3'b111};
+wire[7:0] color = {2'b11, 3'b110, 3'b000};
 
 wire[7:0] nxt_clr = black ? 8'd0 : checker ? 8'd0 : color;
 
