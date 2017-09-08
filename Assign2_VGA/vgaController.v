@@ -74,16 +74,16 @@ wire nxt_hsync = ~(col >= (47  + 640 + 16));
 						 // 523
 wire nxt_vsync = ~(row >= (32  + 480 +  10));
 				
-//wire nxt_col = pxl_ending ? ((col == 10'd799) ? 10'd0 : col + 1'b1) : col;
-//wire nxt_row = line_ending ? ((row == 10'd524) ? 10'd0 : row + 1'b1) : row;
+wire[9:0] nxt_col = pxl_ending ? ((col == 10'd799) ? 10'd0 : col + 1'b1) : col;
+wire[9:0] nxt_row = line_ending ? ((row == 10'd524) ? 10'd0 : row + 1'b1) : row;
 
-wire h_in_frame = col >= 47 && col < (46 + 640);
-wire v_in_frame = row >= 32 && row < (32 + 480);
+wire h_in_frame = col >= 48 && col < (48 + 640);
+wire v_in_frame = row >= 33 && row < (32 + 480);
 
 wire black = ~(h_in_frame && v_in_frame);
-wire checker = 1; //((col & ~(10'd10))) > 10'd31 && ((row & ~(10'd10)) > 10'd23);
+wire checker = ((col & ~(10'd10))) > 10'd31 && ((row & ~(10'd10)) > 10'd23);
 
-wire line_ending = col == 10'd799;
+wire line_ending = col == 10'd799 && pxl_ending;
 wire frame_ending = row_ending && line_ending;
 wire pxl_ending = pxl_counter == 2'd3;
 wire row_ending = row == 10'd524;
@@ -100,8 +100,8 @@ wire[7:0] nxt_clr = black ? 8'd0 : checker ? color : 8'd0;
 always @(posedge clk)
 begin
 	
-	col <= pxl_ending ? ((col == 10'd799) ? 10'd0 : col + 1'b1) : col;
-	row <= line_ending ? ((row == 10'd524) ? 10'd0 : row + 1'b1) : row;
+	col <= nxt_col;
+	row <= nxt_row;
 
 	h_sync <= nxt_hsync;
 	v_sync <= nxt_vsync;
