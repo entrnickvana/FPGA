@@ -62,7 +62,9 @@ module vgaController(
 reg[9:0] col; 				initial col = 10'd0;
 reg[9:0] row;				initial row = 10'd0;
 reg[1:0] pxl_counter;		initial pxl_counter = 2'd0;
+reg[26:0] seconds;			initial seconds = 26'd0;
 
+// 	101 1111 0101 1110 0001 0000 0000
 initial h_sync = 1'b1;
 initial v_sync = 1'b1;
 
@@ -81,7 +83,7 @@ wire h_in_frame = col >= 48 && col < (48 + 640);
 wire v_in_frame = row >= 33 && row < (32 + 480);
 
 wire black = ~(h_in_frame && v_in_frame);
-wire checker = col[6] ^ row[6];
+wire checker = seconds[26] == 1'b1 && seconds[25] == 1'b1 ?  ~(col[6] ^ row[6]) : col[6] ^ row[6] ;
 
 wire line_ending = col == 10'd799 && pxl_ending;
 wire frame_ending = row_ending && line_ending;
@@ -92,7 +94,7 @@ wire[1:0] nxt_pxl = pxl_counter + 1'b1;
 
 wire[7:0] color = {2'b11, 3'b110, 3'b000};
 
-wire[7:0] nxt_clr = black ? 8'd0 : checker ? 8'd0 : color;
+wire[7:0] nxt_clr = black ? 8'd0 : checker ? 8'd0 : seconds[26:19];
 
 
 /////////////////////////////  SEQUENTIAL LOGIC  /////////////////////////////////////
@@ -102,6 +104,8 @@ begin
 	
 	col <= nxt_col;
 	row <= nxt_row;
+
+	seconds <= seconds + 1'b1;
 
 	h_sync <= nxt_hsync;
 	v_sync <= nxt_vsync;
