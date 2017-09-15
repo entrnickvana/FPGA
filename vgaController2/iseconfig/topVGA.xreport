@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-09-15T11:13:13</DateModified>
+  <DateModified>2017-09-15T13:20:09</DateModified>
   <ModuleName>topVGA</ModuleName>
-  <SummaryTimeStamp>2017-09-15T10:52:23</SummaryTimeStamp>
+  <SummaryTimeStamp>2017-09-15T13:02:06</SummaryTimeStamp>
   <SavedFilePath>C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/iseconfig/topVGA.xreport</SavedFilePath>
   <ImplementationReportsDirectory>C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2\</ImplementationReportsDirectory>
   <DateInitialized>2017-09-15T09:01:08</DateInitialized>

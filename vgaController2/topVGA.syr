@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Reading design: topVGA.prj
 
@@ -160,35 +160,39 @@ Unit <signal_gen> synthesized.
 
 Synthesizing Unit <pixel_gen>.
     Related source file is "C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\vgaController2\pixel_gen.v".
-WARNING:Xst:647 - Input <col<5:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <col<9:7>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <row<5:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <row<9:7>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <snowButton> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 8-bit register for signal <next_color>.
+    Found 31-bit register for signal <random>.
+    Found 10-bit subtractor for signal <logic_col> created at line 35.
+    Found 10-bit subtractor for signal <logic_row> created at line 36.
     Summary:
-	inferred   8 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  39 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
 Unit <pixel_gen> synthesized.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 3
+# Adders/Subtractors                                   : 5
  10-bit adder                                          : 2
+ 10-bit subtractor                                     : 2
  2-bit adder                                           : 1
-# Registers                                            : 9
+# Registers                                            : 10
  1-bit register                                        : 2
  10-bit register                                       : 2
  2-bit register                                        : 2
  3-bit register                                        : 2
+ 31-bit register                                       : 1
  8-bit register                                        : 1
 # Comparators                                          : 6
  10-bit comparator greater                             : 2
  10-bit comparator lessequal                           : 4
-# Multiplexers                                         : 1
- 8-bit 2-to-1 multiplexer                              : 1
-# Xors                                                 : 1
- 1-bit xor2                                            : 1
+# Multiplexers                                         : 2
+ 8-bit 2-to-1 multiplexer                              : 2
+# Xors                                                 : 3
+ 1-bit xor2                                            : 3
 
 =========================================================================
 
@@ -207,18 +211,21 @@ Unit <signal_gen> synthesized (advanced).
 Advanced HDL Synthesis Report
 
 Macro Statistics
+# Adders/Subtractors                                   : 2
+ 7-bit subtractor                                      : 2
 # Counters                                             : 3
  10-bit up counter                                     : 2
  2-bit up counter                                      : 1
-# Registers                                            : 18
- Flip-Flops                                            : 18
+# Registers                                            : 49
+ Flip-Flops                                            : 49
 # Comparators                                          : 6
  10-bit comparator greater                             : 2
  10-bit comparator lessequal                           : 4
-# Multiplexers                                         : 1
+# Multiplexers                                         : 9
+ 1-bit 2-to-1 multiplexer                              : 8
  8-bit 2-to-1 multiplexer                              : 1
-# Xors                                                 : 1
- 1-bit xor2                                            : 1
+# Xors                                                 : 3
+ 1-bit xor2                                            : 3
 
 =========================================================================
 
@@ -234,16 +241,24 @@ Optimizing unit <signal_gen> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block topVGA, actual ratio is 0.
+Found area constraint ratio of 100 (+ 5) on block topVGA, actual ratio is 1.
 
 Final Macro Processing ...
+
+Processing Unit <topVGA> :
+	Found 11-bit shift register for signal <pxl1/random_28>.
+	Found 10-bit shift register for signal <pxl1/random_27>.
+Unit <topVGA> processed.
 
 =========================================================================
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 40
- Flip-Flops                                            : 40
+# Registers                                            : 50
+ Flip-Flops                                            : 50
+# Shift Registers                                      : 2
+ 10-bit shift register                                 : 1
+ 11-bit shift register                                 : 1
 
 =========================================================================
 
@@ -266,25 +281,28 @@ Top Level Output File Name         : topVGA.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 115
+# BELS                             : 118
 #      GND                         : 1
 #      INV                         : 3
 #      LUT1                        : 18
-#      LUT2                        : 12
-#      LUT3                        : 2
+#      LUT2                        : 8
+#      LUT3                        : 8
 #      LUT4                        : 1
 #      LUT5                        : 12
-#      LUT6                        : 27
+#      LUT6                        : 28
 #      MUXCY                       : 18
 #      VCC                         : 1
 #      XORCY                       : 20
-# FlipFlops/Latches                : 40
-#      FD                          : 32
-#      FDE                         : 8
+# FlipFlops/Latches                : 52
+#      FD                          : 34
+#      FDE                         : 10
+#      FDRE                        : 8
+# Shift Registers                  : 2
+#      SRLC16E                     : 2
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 18
-#      IBUF                        : 8
+# IO Buffers                       : 19
+#      IBUF                        : 9
 #      OBUF                        : 10
 
 Device utilization summary:
@@ -294,20 +312,22 @@ Selected Device : 6slx16csg324-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              40  out of  18224     0%  
- Number of Slice LUTs:                   75  out of   9112     0%  
-    Number used as Logic:                75  out of   9112     0%  
+ Number of Slice Registers:              52  out of  18224     0%  
+ Number of Slice LUTs:                   80  out of   9112     0%  
+    Number used as Logic:                78  out of   9112     0%  
+    Number used as Memory:                2  out of   2176     0%  
+       Number used as SRL:                2
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     75
-   Number with an unused Flip Flop:      35  out of     75    46%  
-   Number with an unused LUT:             0  out of     75     0%  
-   Number of fully used LUT-FF pairs:    40  out of     75    53%  
-   Number of unique control sets:         2
+ Number of LUT Flip Flop pairs used:     88
+   Number with an unused Flip Flop:      36  out of     88    40%  
+   Number with an unused LUT:             8  out of     88     9%  
+   Number of fully used LUT-FF pairs:    44  out of     88    50%  
+   Number of unique control sets:         4
 
 IO Utilization: 
- Number of IOs:                          19
- Number of bonded IOBs:                  19  out of    232     8%  
+ Number of IOs:                          20
+ Number of bonded IOBs:                  20  out of    232     8%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
@@ -333,7 +353,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 40    |
+clk                                | BUFGP                  | 54    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -344,8 +364,8 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 5.037ns (Maximum Frequency: 198.531MHz)
-   Minimum input arrival time before clock: 2.793ns
+   Minimum period: 5.213ns (Maximum Frequency: 191.828MHz)
+   Minimum input arrival time before clock: 5.455ns
    Maximum output required time after clock: 4.118ns
    Maximum combinational path delay: No path found
 
@@ -355,10 +375,10 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 5.037ns (frequency: 198.531MHz)
-  Total number of paths / destination ports: 945 / 48
+  Clock period: 5.213ns (frequency: 191.828MHz)
+  Total number of paths / destination ports: 881 / 70
 -------------------------------------------------------------------------
-Delay:               5.037ns (Levels of Logic = 3)
+Delay:               5.213ns (Levels of Logic = 3)
   Source:            sig1/pxl_counter_1 (FF)
   Destination:       sig1/col_9 (FF)
   Source Clock:      clk rising
@@ -368,34 +388,35 @@ Delay:               5.037ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q              24   0.525   1.488  sig1/pxl_counter_1 (sig1/pxl_counter_1)
-     LUT3:I1->O            1   0.250   0.790  sig1/col[9]_PWR_2_o_equal_3_o<9>_SW2 (N8)
-     LUT6:I4->O            9   0.250   1.406  sig1/line_ending1 (sig1/line_ending)
+     FD:C->Q              22   0.525   1.442  sig1/pxl_counter_1 (sig1/pxl_counter_1)
+     LUT2:I0->O           10   0.250   1.008  sig1/pxl_ending<1>1 (sig1/pxl_ending)
+     LUT6:I5->O            9   0.254   1.406  sig1/line_ending1 (sig1/line_ending)
      LUT5:I0->O            1   0.254   0.000  sig1/col_9_rstpot (sig1/col_9_rstpot)
      FD:D                      0.074          sig1/col_9
     ----------------------------------------
-    Total                      5.037ns (1.353ns logic, 3.684ns route)
-                                       (26.9% logic, 73.1% route)
+    Total                      5.213ns (1.357ns logic, 3.856ns route)
+                                       (26.0% logic, 74.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 8 / 8
+  Total number of paths / destination ports: 39 / 24
 -------------------------------------------------------------------------
-Offset:              2.793ns (Levels of Logic = 2)
-  Source:            switches<7> (PAD)
+Offset:              5.455ns (Levels of Logic = 3)
+  Source:            snowButton (PAD)
   Destination:       pxl1/next_color_7 (FF)
   Destination Clock: clk rising
 
-  Data Path: switches<7> to pxl1/next_color_7
+  Data Path: snowButton to pxl1/next_color_7
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             1   1.328   1.137  switches_7_IBUF (switches_7_IBUF)
-     LUT6:I0->O            1   0.254   0.000  pxl1/next_color_7_rstpot (pxl1/next_color_7_rstpot)
-     FD:D                      0.074          pxl1/next_color_7
+     IBUF:I->O             9   1.328   1.084  snowButton_IBUF (snowButton_IBUF)
+     LUT2:I0->O            1   0.250   1.137  pxl1/_n0025_SW0 (N2)
+     LUT6:I0->O            8   0.254   0.943  pxl1/_n0025 (pxl1/_n0025)
+     FDRE:R                    0.459          pxl1/next_color_0
     ----------------------------------------
-    Total                      2.793ns (1.656ns logic, 1.137ns route)
-                                       (59.3% logic, 40.7% route)
+    Total                      5.455ns (2.291ns logic, 3.164ns route)
+                                       (42.0% logic, 58.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
@@ -426,20 +447,20 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    5.037|         |         |         |
+clk            |    5.213|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 5.00 secs
-Total CPU time to Xst completion: 5.50 secs
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 5.54 secs
  
 --> 
 
-Total memory usage is 295348 kilobytes
+Total memory usage is 291100 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    4 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

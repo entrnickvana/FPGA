@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module topVGA(
 	input clk,
-//	input snowButton,
+	input snowButton,
 	input [7:0] switches,
 	output [1:0] vgaBlue_Pad,
 	output [2:0] vgaGreen_Pad,
@@ -42,7 +42,7 @@ module topVGA(
 	signal_gen sig1(clk, colors_pxl_signal, col_signal_pxl, row_signal_pxl, vgaBlue_Pad, vgaGreen_Pad, vgaRed_Pad, h_sync_Pad, v_sync_Pad, req_signal_pxl);
 	
 // module pixel_gen(	input clk,	input req,	input[9:0] col, input[9:0] row,	input[7:0] switches,	output reg[7:0] next_color);
-	pixel_gen pxl1(clk, req_signal_pxl, col_signal_pxl, row_signal_pxl, switches, colors_pxl_signal);
+	pixel_gen pxl1(clk, snowButton, req_signal_pxl, col_signal_pxl, row_signal_pxl, switches, colors_pxl_signal);
 	// Instantiate signal gen
 
 

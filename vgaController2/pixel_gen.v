@@ -21,34 +21,39 @@
 module pixel_gen(
 	input clk,
 	input req,
-	//input snowButton,
+	input snowButton,
 	input[9:0] col, 				
 	input[9:0] row,
 	input[7:0] switches,
 	output reg[7:0] next_color
     );
 	
-	wire checker = col[6] ^ row[6];
-	//reg[29:0] random;		 		initial random = 30'd3;
+	wire checker = logic_col[6] ^ logic_row[6];
+
+	reg[30:0] random;		 		initial random = 31'd733;
+
+	wire [9:0]logic_col = col - 10'd48;
+	wire [9:0]logic_row = row - 10'd33;
 
 
-	wire[7:0] new_next_color = checker ? 8'd0 : switches;
+
+	wire[7:0] new_next_color = switches[0] ? random[7:0] : checker ? 8'd0 : {switches[7:1], 1'b0};
 
 	always @(posedge clk) 
 	begin
+		random <= {random[28:0], random[30] ^ random[28], random[29] ^ random[27]};
+
 		if(req == 1'b1)
 			begin
-				//next_color <= snowButton ? random[7:0] : new_next_color;				
 				next_color <= new_next_color;				
-				//random <= {random[29:2], random[29] ^ random[27], random[28]^random[26]};
 			end
 		else
 			begin
 				next_color <= next_color;			
-	//			random <= random;
 			end
-
 	end	
+
+
 	
 
 

@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Fri Sep 15 11:51:55 2017
+// Written by: Map P.20131013 on Fri Sep 15 14:43:25 2017
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -13,6 +13,7 @@ COMP "switches<5>" LOCATE = SITE "U8" LEVEL 1;
 COMP "switches<6>" LOCATE = SITE "V8" LEVEL 1;
 COMP "switches<7>" LOCATE = SITE "T5" LEVEL 1;
 COMP "vgaGreen_Pad<0>" LOCATE = SITE "P8" LEVEL 1;
+COMP "snowButton" LOCATE = SITE "C9" LEVEL 1;
 COMP "vgaGreen_Pad<1>" LOCATE = SITE "T6" LEVEL 1;
 COMP "vgaGreen_Pad<2>" LOCATE = SITE "V6" LEVEL 1;
 COMP "v_sync_Pad" LOCATE = SITE "P7" LEVEL 1;
@@ -22,19 +23,24 @@ COMP "vgaRed_Pad<1>" LOCATE = SITE "V7" LEVEL 1;
 COMP "vgaRed_Pad<2>" LOCATE = SITE "N7" LEVEL 1;
 COMP "vgaBlue_Pad<0>" LOCATE = SITE "R7" LEVEL 1;
 COMP "vgaBlue_Pad<1>" LOCATE = SITE "T7" LEVEL 1;
-TIMEGRP sys_clk_pin = BEL "sig1/pxl_counter_1" BEL "sig1/pxl_counter_0" BEL
-        "sig1/v_sync" BEL "sig1/h_sync" BEL "sig1/vgaBlue_1" BEL
-        "sig1/vgaBlue_0" BEL "sig1/vgaGreen_2" BEL "sig1/vgaGreen_1" BEL
-        "sig1/vgaGreen_0" BEL "sig1/vgaRed_2" BEL "sig1/vgaRed_1" BEL
-        "sig1/vgaRed_0" BEL "pxl1/next_color_7" BEL "pxl1/next_color_6" BEL
+TIMEGRP sys_clk_pin = BEL "pxl1/next_color_7" BEL "pxl1/next_color_6" BEL
         "pxl1/next_color_5" BEL "pxl1/next_color_4" BEL "pxl1/next_color_3"
         BEL "pxl1/next_color_2" BEL "pxl1/next_color_1" BEL
-        "pxl1/next_color_0" BEL "sig1/col_0" BEL "sig1/row_9" BEL "sig1/row_8"
-        BEL "sig1/row_7" BEL "sig1/row_6" BEL "sig1/row_5" BEL "sig1/row_4"
-        BEL "sig1/row_3" BEL "sig1/row_2" BEL "sig1/row_1" BEL "sig1/row_0"
-        BEL "sig1/col_9" BEL "sig1/col_8" BEL "sig1/col_7" BEL "sig1/col_6"
-        BEL "sig1/col_5" BEL "sig1/col_4" BEL "sig1/col_3" BEL "sig1/col_2"
-        BEL "sig1/col_1" BEL "clk_BUFGP/BUFG";
+        "pxl1/next_color_0" BEL "pxl1/random_30" BEL "pxl1/random_29" BEL
+        "pxl1/random_7" BEL "pxl1/random_6" BEL "pxl1/random_5" BEL
+        "pxl1/random_4" BEL "pxl1/random_3" BEL "pxl1/random_2" BEL
+        "pxl1/random_1" BEL "pxl1/random_0" BEL "sig1/pxl_counter_1" BEL
+        "sig1/pxl_counter_0" BEL "sig1/v_sync" BEL "sig1/h_sync" BEL
+        "sig1/vgaBlue_1" BEL "sig1/vgaBlue_0" BEL "sig1/vgaGreen_2" BEL
+        "sig1/vgaGreen_1" BEL "sig1/vgaGreen_0" BEL "sig1/vgaRed_2" BEL
+        "sig1/vgaRed_1" BEL "sig1/vgaRed_0" BEL "sig1/col_0" BEL "sig1/row_9"
+        BEL "sig1/row_8" BEL "sig1/row_7" BEL "sig1/row_6" BEL "sig1/row_5"
+        BEL "sig1/row_4" BEL "sig1/row_3" BEL "sig1/row_2" BEL "sig1/row_1"
+        BEL "sig1/row_0" BEL "sig1/col_9" BEL "sig1/col_8" BEL "sig1/col_7"
+        BEL "sig1/col_6" BEL "sig1/col_5" BEL "sig1/col_4" BEL "sig1/col_3"
+        BEL "sig1/col_2" BEL "sig1/col_1" BEL "clk_BUFGP/BUFG" BEL
+        "pxl1/Mshreg_random_28" BEL "pxl1/random_28" BEL
+        "pxl1/Mshreg_random_27" BEL "pxl1/random_27";
 TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 50%;
 SCHEMATIC END;
 
