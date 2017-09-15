@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-09-15T08:42:32</DateModified>
+  <DateModified>2017-09-15T10:36:38</DateModified>
   <ModuleName>vgaController</ModuleName>
-  <SummaryTimeStamp>2017-09-08T09:36:54</SummaryTimeStamp>
+  <SummaryTimeStamp>2017-09-15T08:58:02</SummaryTimeStamp>
   <SavedFilePath>C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA/iseconfig/vgaController.xreport</SavedFilePath>
   <ImplementationReportsDirectory>C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/Assign2_VGA\</ImplementationReportsDirectory>
   <DateInitialized>2017-09-07T08:30:37</DateInitialized>

@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.15 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.15 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Reading design: vgaController.prj
 
@@ -121,7 +121,6 @@ Elaborating module <vgaController>.
 Synthesizing Unit <vgaController>.
     Related source file is "C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\Assign2_VGA\vgaController.v".
     Found 10-bit register for signal <row>.
-    Found 27-bit register for signal <seconds>.
     Found 1-bit register for signal <h_sync>.
     Found 1-bit register for signal <v_sync>.
     Found 2-bit register for signal <pxl_counter>.
@@ -129,43 +128,39 @@ Synthesizing Unit <vgaController>.
     Found 3-bit register for signal <vgaGreen>.
     Found 2-bit register for signal <vgaBlue>.
     Found 10-bit register for signal <col>.
-    Found 10-bit adder for signal <col[9]_GND_1_o_add_3_OUT> created at line 79.
-    Found 10-bit adder for signal <row[9]_GND_1_o_add_7_OUT> created at line 80.
-    Found 2-bit adder for signal <nxt_pxl> created at line 93.
-    Found 27-bit adder for signal <seconds[26]_GND_1_o_add_24_OUT> created at line 108.
-    Found 10-bit comparator lessequal for signal <PWR_1_o_col[9]_LessThan_1_o> created at line 75
-    Found 10-bit comparator lessequal for signal <PWR_1_o_row[9]_LessThan_2_o> created at line 77
-    Found 10-bit comparator lessequal for signal <n0011> created at line 82
-    Found 10-bit comparator greater for signal <col[9]_PWR_1_o_LessThan_12_o> created at line 82
-    Found 10-bit comparator lessequal for signal <n0015> created at line 83
-    Found 10-bit comparator greater for signal <row[9]_PWR_1_o_LessThan_14_o> created at line 83
+    Found 10-bit adder for signal <col[9]_GND_1_o_add_3_OUT> created at line 78.
+    Found 10-bit adder for signal <row[9]_GND_1_o_add_7_OUT> created at line 79.
+    Found 2-bit adder for signal <nxt_pxl> created at line 92.
+    Found 10-bit comparator lessequal for signal <PWR_1_o_col[9]_LessThan_1_o> created at line 74
+    Found 10-bit comparator lessequal for signal <PWR_1_o_row[9]_LessThan_2_o> created at line 76
+    Found 10-bit comparator lessequal for signal <n0011> created at line 81
+    Found 10-bit comparator greater for signal <col[9]_PWR_1_o_LessThan_12_o> created at line 81
+    Found 10-bit comparator lessequal for signal <n0015> created at line 82
+    Found 10-bit comparator greater for signal <row[9]_PWR_1_o_LessThan_14_o> created at line 82
     Summary:
-	inferred   4 Adder/Subtractor(s).
-	inferred  59 D-type flip-flop(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred  32 D-type flip-flop(s).
 	inferred   6 Comparator(s).
-	inferred   3 Multiplexer(s).
+	inferred   1 Multiplexer(s).
 Unit <vgaController> synthesized.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 4
+# Adders/Subtractors                                   : 3
  10-bit adder                                          : 2
  2-bit adder                                           : 1
- 27-bit adder                                          : 1
-# Registers                                            : 9
+# Registers                                            : 8
  1-bit register                                        : 2
  10-bit register                                       : 2
  2-bit register                                        : 2
- 27-bit register                                       : 1
  3-bit register                                        : 2
 # Comparators                                          : 6
  10-bit comparator greater                             : 2
  10-bit comparator lessequal                           : 4
-# Multiplexers                                         : 3
- 1-bit 2-to-1 multiplexer                              : 1
- 8-bit 2-to-1 multiplexer                              : 2
+# Multiplexers                                         : 1
+ 8-bit 2-to-1 multiplexer                              : 1
 # Xors                                                 : 1
  1-bit xor2                                            : 1
 
@@ -175,10 +170,10 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
+WARNING:Xst:2404 -  FFs/Latches <vgaRed<2:0>> (without init value) have a constant value of 0 in block <vgaController>.
 
 Synthesizing (advanced) Unit <vgaController>.
 The following registers are absorbed into counter <pxl_counter>: 1 register on signal <pxl_counter>.
-The following registers are absorbed into counter <seconds>: 1 register on signal <seconds>.
 The following registers are absorbed into counter <row>: 1 register on signal <row>.
 The following registers are absorbed into counter <col>: 1 register on signal <col>.
 Unit <vgaController> synthesized (advanced).
@@ -187,18 +182,14 @@ Unit <vgaController> synthesized (advanced).
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Counters                                             : 4
+# Counters                                             : 3
  10-bit up counter                                     : 2
  2-bit up counter                                      : 1
- 27-bit up counter                                     : 1
-# Registers                                            : 10
- Flip-Flops                                            : 10
+# Registers                                            : 7
+ Flip-Flops                                            : 7
 # Comparators                                          : 6
  10-bit comparator greater                             : 2
  10-bit comparator lessequal                           : 4
-# Multiplexers                                         : 3
- 1-bit 2-to-1 multiplexer                              : 1
- 8-bit 2-to-1 multiplexer                              : 2
 # Xors                                                 : 1
  1-bit xor2                                            : 1
 
@@ -207,15 +198,12 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+WARNING:Xst:1710 - FF/Latch <vgaGreen_0> (without init value) has a constant value of 0 in block <vgaController>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <vgaGreen_1> in Unit <vgaController> is equivalent to the following FF/Latch, which will be removed : <vgaGreen_2> 
+INFO:Xst:2261 - The FF/Latch <vgaBlue_0> in Unit <vgaController> is equivalent to the following FF/Latch, which will be removed : <vgaBlue_1> 
 
 Optimizing unit <vgaController> ...
-INFO:Xst:2261 - The FF/Latch <pxl_counter_0> in Unit <vgaController> is equivalent to the following FF/Latch, which will be removed : <seconds_0> 
-INFO:Xst:2261 - The FF/Latch <pxl_counter_1> in Unit <vgaController> is equivalent to the following FF/Latch, which will be removed : <seconds_1> 
-INFO:Xst:2261 - The FF/Latch <col_0> in Unit <vgaController> is equivalent to the following FF/Latch, which will be removed : <seconds_2> 
-INFO:Xst:2261 - The FF/Latch <col_1> in Unit <vgaController> is equivalent to the following FF/Latch, which will be removed : <seconds_3> 
-INFO:Xst:2261 - The FF/Latch <col_2> in Unit <vgaController> is equivalent to the following FF/Latch, which will be removed : <seconds_4> 
-INFO:Xst:2261 - The FF/Latch <col_3> in Unit <vgaController> is equivalent to the following FF/Latch, which will be removed : <seconds_5> 
-INFO:Xst:2261 - The FF/Latch <col_4> in Unit <vgaController> is equivalent to the following FF/Latch, which will be removed : <seconds_6> 
+INFO:Xst:2261 - The FF/Latch <vgaGreen_1> in Unit <vgaController> is equivalent to the following FF/Latch, which will be removed : <vgaBlue_0> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -227,8 +215,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 52
- Flip-Flops                                            : 52
+# Registers                                            : 25
+ Flip-Flops                                            : 25
 
 =========================================================================
 
@@ -251,20 +239,20 @@ Top Level Output File Name         : vgaController.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 192
+# BELS                             : 98
 #      GND                         : 1
 #      INV                         : 3
-#      LUT1                        : 44
-#      LUT2                        : 3
+#      LUT1                        : 18
+#      LUT2                        : 4
 #      LUT3                        : 1
-#      LUT4                        : 5
-#      LUT5                        : 20
-#      LUT6                        : 30
-#      MUXCY                       : 44
+#      LUT4                        : 3
+#      LUT5                        : 12
+#      LUT6                        : 17
+#      MUXCY                       : 18
 #      VCC                         : 1
-#      XORCY                       : 40
-# FlipFlops/Latches                : 52
-#      FD                          : 52
+#      XORCY                       : 20
+# FlipFlops/Latches                : 25
+#      FD                          : 25
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 10
@@ -277,15 +265,15 @@ Selected Device : 6slx16csg324-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              52  out of  18224     0%  
- Number of Slice LUTs:                  106  out of   9112     1%  
-    Number used as Logic:               106  out of   9112     1%  
+ Number of Slice Registers:              25  out of  18224     0%  
+ Number of Slice LUTs:                   58  out of   9112     0%  
+    Number used as Logic:                58  out of   9112     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    106
-   Number with an unused Flip Flop:      54  out of    106    50%  
-   Number with an unused LUT:             0  out of    106     0%  
-   Number of fully used LUT-FF pairs:    52  out of    106    49%  
+ Number of LUT Flip Flop pairs used:     58
+   Number with an unused Flip Flop:      33  out of     58    56%  
+   Number with an unused LUT:             0  out of     58     0%  
+   Number of fully used LUT-FF pairs:    25  out of     58    43%  
    Number of unique control sets:         1
 
 IO Utilization: 
@@ -316,7 +304,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 52    |
+clk                                | BUFGP                  | 25    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -327,9 +315,9 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 4.579ns (Maximum Frequency: 218.388MHz)
+   Minimum period: 4.549ns (Maximum Frequency: 219.829MHz)
    Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: 4.118ns
+   Maximum output required time after clock: 4.240ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -338,10 +326,10 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 4.579ns (frequency: 218.388MHz)
-  Total number of paths / destination ports: 1049 / 52
+  Clock period: 4.549ns (frequency: 219.829MHz)
+  Total number of paths / destination ports: 520 / 25
 -------------------------------------------------------------------------
-Delay:               4.579ns (Levels of Logic = 3)
+Delay:               4.549ns (Levels of Logic = 3)
   Source:            pxl_counter_1 (FF)
   Destination:       col_1 (FF)
   Source Clock:      clk rising
@@ -351,33 +339,33 @@ Delay:               4.579ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q              12   0.525   1.177  pxl_counter_1 (pxl_counter_1)
+     FD:C->Q              11   0.525   1.147  pxl_counter_1 (pxl_counter_1)
      LUT2:I0->O           12   0.250   1.069  pxl_ending<1>1 (pxl_ending)
      LUT6:I5->O            9   0.254   0.976  line_ending1 (line_ending)
      LUT5:I4->O            1   0.254   0.000  col_1_rstpot (col_1_rstpot)
      FD:D                      0.074          col_1
     ----------------------------------------
-    Total                      4.579ns (1.357ns logic, 3.222ns route)
-                                       (29.6% logic, 70.4% route)
+    Total                      4.549ns (1.357ns logic, 3.192ns route)
+                                       (29.8% logic, 70.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 10 / 10
+  Total number of paths / destination ports: 6 / 6
 -------------------------------------------------------------------------
-Offset:              4.118ns (Levels of Logic = 1)
-  Source:            vgaBlue_1 (FF)
+Offset:              4.240ns (Levels of Logic = 1)
+  Source:            vgaGreen_1 (FF)
   Destination:       vgaBlue<1> (PAD)
   Source Clock:      clk rising
 
-  Data Path: vgaBlue_1 to vgaBlue<1>
+  Data Path: vgaGreen_1 to vgaBlue<1>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               1   0.525   0.681  vgaBlue_1 (vgaBlue_1)
+     FD:C->Q               4   0.525   0.803  vgaGreen_1 (vgaGreen_1)
      OBUF:I->O                 2.912          vgaBlue_1_OBUF (vgaBlue<1>)
     ----------------------------------------
-    Total                      4.118ns (3.437ns logic, 0.681ns route)
-                                       (83.5% logic, 16.5% route)
+    Total                      4.240ns (3.437ns logic, 0.803ns route)
+                                       (81.1% logic, 18.9% route)
 
 =========================================================================
 
@@ -389,20 +377,20 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    4.579|         |         |         |
+clk            |    4.549|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 6.00 secs
-Total CPU time to Xst completion: 6.19 secs
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 5.54 secs
  
 --> 
 
-Total memory usage is 295836 kilobytes
+Total memory usage is 295028 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    0 (   0 filtered)
-Number of infos    :    7 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
 

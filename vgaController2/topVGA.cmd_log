@@ -1,0 +1,38 @@
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 topVGA.ngc topVGA.ngd  
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 topVGA.ngc topVGA.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o topVGA_map.ncd topVGA.ngd topVGA.pcf 
+par -w -intstyle ise -ol high -mt off topVGA_map.ncd topVGA.ncd topVGA.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml topVGA.twx topVGA.ncd -o topVGA.twr topVGA.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f topVGA.ut topVGA.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 topVGA.ngc topVGA.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o topVGA_map.ncd topVGA.ngd topVGA.pcf 
+par -w -intstyle ise -ol high -mt off topVGA_map.ncd topVGA.ncd topVGA.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml topVGA.twx topVGA.ncd -o topVGA.twr topVGA.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f topVGA.ut topVGA.ncd 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+xst -intstyle ise -ifn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.xst" -ofn "C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/vgaController2/topVGA.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 topVGA.ngc topVGA.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o topVGA_map.ncd topVGA.ngd topVGA.pcf 
+par -w -intstyle ise -ol high -mt off topVGA_map.ncd topVGA.ncd topVGA.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml topVGA.twx topVGA.ncd -o topVGA.twr topVGA.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f topVGA.ut topVGA.ncd 
