@@ -1,0 +1,4 @@
+verilog work "signal_gen.v"
+verilog work "pixel_gen.v"
+verilog work "ipcore_dir/mem.v"
+verilog work "TopVGA.v"

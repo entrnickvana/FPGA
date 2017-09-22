@@ -1,0 +1,3 @@
+verilog work "TopVGA.v"
+verilog work "signal_gen.v"
+verilog work "pixel_gen.v"

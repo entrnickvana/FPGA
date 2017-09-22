@@ -1,0 +1,18 @@
+ 0x40076a <part_three>:	sub    $0x8,%rsp
+=> 0x40076e <part_three+4>:	mov    $0x0,%eax                         ret = 0;                r2          r3
+   0x400773 <part_three+9>:	callq  0x4006c6 <read_int>               your_int = your_int;    0           0 1 
+   0x400778 <part_three+14>:	mov    $0x0,%edx                         r3 = 0;                 1
+   0x40077d <part_three+19>:	mov    $0x1,%ecx                         r4 = 1;
+   0x400782 <part_three+24>:	mov    $0x0,%esi                         r1 = 0; r2 = 0;
+   0x400787 <part_three+29>:	jmp    0x400791 <part_three+39>          while(r3 <= 2 )
+   0x400789 <part_three+31>:	add    %ecx,%esi                         {
+   0x40078b <part_three+33>:	add    $0x1,%edx                              r2 = r4 + r2;
+   0x40078e <part_three+36>:	lea    0x1(%rcx),%ecx                         r3++;
+   0x400791 <part_three+39>:	cmp    $0x2,%edx                              
+   0x400794 <part_three+42>:	jle    0x400789 <part_three+31>          }
+   0x400796 <part_three+44>:	cmp    %esi,%eax                         
+   0x400798 <part_three+46>:	je     0x4007a4 <part_three+58>          if(r2 == EAX)
+   0x40079a <part_three+48>:	mov    $0x0,%eax
+   0x40079f <part_three+53>:	callq  0x4006f6 <fail>
+   0x4007a4 <part_three+58>:	add    $0x8,%rsp
+   0x4007a8 <part_three+62>:	retq   

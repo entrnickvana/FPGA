@@ -31,7 +31,7 @@ module testVGA;
 	wire [1:0] vgaBlue;
 	wire [2:0] vgaGreen;
 	wire [2:0] vgaRed;
-	wire h_sync;
+	wire h_sync
 	wire v_sync;
 
 	// Instantiate the Unit Under Test (UUT)

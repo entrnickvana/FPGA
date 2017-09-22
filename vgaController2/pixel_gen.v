@@ -52,9 +52,4 @@ module pixel_gen(
 				next_color <= next_color;			
 			end
 	end	
-
-
-	
-
-
 endmodule

@@ -82,7 +82,7 @@ wire h_in_frame = col >= 48 && col < (48 + 640);
 wire v_in_frame = row >= 33 && row < (32 + 480);
 
 wire black = ~(h_in_frame && v_in_frame);
-wire checker = col[6] ^ row[6] ;
+wire checker = col[6] ^ row[6];
 
 wire line_ending = col == 10'd799 && pxl_ending;
 wire frame_ending = row_ending && line_ending;

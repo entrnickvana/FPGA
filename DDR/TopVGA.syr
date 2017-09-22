@@ -1,0 +1,538 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.10 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.10 secs
+ 
+--> Reading design: TopVGA.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "TopVGA.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "TopVGA"
+Output Format                      : NGC
+Target Device                      : xc7a100t-1-csg324
+
+---- Source Options
+Top Module Name                    : TopVGA
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\DDR\signal_gen.v" into library work
+Parsing module <signal_gen>.
+Analyzing Verilog file "C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\DDR\pixel_gen.v" into library work
+Parsing module <pixel_gen>.
+Analyzing Verilog file "C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\DDR\ipcore_dir\mem.v" into library work
+Parsing module <mem>.
+Analyzing Verilog file "C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\DDR\TopVGA.v" into library work
+Parsing module <TopVGA>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <TopVGA>.
+
+Elaborating module <signal_gen>.
+
+Elaborating module <pixel_gen>.
+
+Elaborating module <mem>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <TopVGA>.
+    Related source file is "C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\DDR\TopVGA.v".
+    Summary:
+	no macro.
+Unit <TopVGA> synthesized.
+
+Synthesizing Unit <signal_gen>.
+    Related source file is "C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\DDR\signal_gen.v".
+    Found 10-bit register for signal <row>.
+    Found 1-bit register for signal <h_sync>.
+    Found 1-bit register for signal <v_sync>.
+    Found 2-bit register for signal <pxl_counter>.
+    Found 3-bit register for signal <vgaRed>.
+    Found 3-bit register for signal <vgaGreen>.
+    Found 2-bit register for signal <vgaBlue>.
+    Found 10-bit register for signal <col>.
+    Found 10-bit adder for signal <col[9]_GND_2_o_add_3_OUT> created at line 56.
+    Found 10-bit adder for signal <row[9]_GND_2_o_add_7_OUT> created at line 57.
+    Found 2-bit adder for signal <nxt_pxl> created at line 73.
+    Found 10-bit comparator lessequal for signal <PWR_2_o_col[9]_LessThan_1_o> created at line 51
+    Found 10-bit comparator lessequal for signal <PWR_2_o_row[9]_LessThan_2_o> created at line 53
+    Found 10-bit comparator lessequal for signal <n0015> created at line 62
+    Found 10-bit comparator greater for signal <col[9]_PWR_2_o_LessThan_14_o> created at line 62
+    Found 10-bit comparator lessequal for signal <n0019> created at line 63
+    Found 10-bit comparator greater for signal <row[9]_PWR_2_o_LessThan_16_o> created at line 63
+    Summary:
+	inferred   3 Adder/Subtractor(s).
+	inferred  32 D-type flip-flop(s).
+	inferred   6 Comparator(s).
+	inferred   5 Multiplexer(s).
+Unit <signal_gen> synthesized.
+
+Synthesizing Unit <pixel_gen>.
+    Related source file is "C:\Users\Nickj\Desktop\NickFall2017\ECE_3710\FPGA_PROJECTS\DDR\pixel_gen.v".
+WARNING:Xst:647 - Input <col> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <row> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <switches> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <snowButton> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 8-bit register for signal <next_color>.
+    Found 2-bit register for signal <state>.
+    Found 16-bit register for signal <char_data_out>.
+    Found 16-bit register for signal <glyph_data_out>.
+    Found 10-bit register for signal <reg_logical_col>.
+    Found 10-bit register for signal <reg_logical_row>.
+    Found 4-bit subtractor for signal <n0054[3:0]> created at line 71.
+    Found 10-bit subtractor for signal <next_col_in[9]_GND_3_o_sub_32_OUT> created at line 169.
+    Found 10-bit subtractor for signal <next_row_in[9]_GND_3_o_sub_33_OUT> created at line 170.
+    Found 11-bit adder for signal <n0077[10:0]> created at line 63.
+    Found 14-bit adder for signal <ascii_to_glyph> created at line 63.
+    Found 14-bit adder for signal <n0074> created at line 65.
+    Found 32-bit adder for signal <n0055> created at line 71.
+    Found 2-bit adder for signal <state[1]_GND_3_o_add_28_OUT> created at line 135.
+    Found 3-bit subtractor for signal <glyph_bit_index<2:0>> created at line 69.
+    Found 8x2-bit Read Only RAM for signal <glyph_word_index>
+    Found 1-bit 16-to-1 multiplexer for signal <GND_3_o_glyph_data_out[15]_Mux_20_o> created at line 71.
+    Found 1-bit 16-to-1 multiplexer for signal <GND_3_o_glyph_data_out[15]_Mux_22_o> created at line 71.
+    Summary:
+	inferred   1 RAM(s).
+	inferred   8 Adder/Subtractor(s).
+	inferred  62 D-type flip-flop(s).
+	inferred   5 Multiplexer(s).
+Unit <pixel_gen> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 8x2-bit single-port Read Only RAM                     : 1
+# Adders/Subtractors                                   : 11
+ 10-bit adder                                          : 2
+ 10-bit subtractor                                     : 2
+ 11-bit adder                                          : 1
+ 14-bit adder                                          : 1
+ 2-bit adder                                           : 2
+ 3-bit subtractor                                      : 1
+ 32-bit adder                                          : 1
+ 4-bit subtractor                                      : 1
+# Registers                                            : 14
+ 1-bit register                                        : 2
+ 10-bit register                                       : 4
+ 16-bit register                                       : 2
+ 2-bit register                                        : 3
+ 3-bit register                                        : 2
+ 8-bit register                                        : 1
+# Comparators                                          : 6
+ 10-bit comparator greater                             : 2
+ 10-bit comparator lessequal                           : 4
+# Multiplexers                                         : 10
+ 1-bit 16-to-1 multiplexer                             : 2
+ 1-bit 2-to-1 multiplexer                              : 1
+ 10-bit 2-to-1 multiplexer                             : 4
+ 14-bit 2-to-1 multiplexer                             : 2
+ 8-bit 2-to-1 multiplexer                              : 1
+
+=========================================================================
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Reading core <ipcore_dir/mem.ngc>.
+Loading core <mem> for timing and area information for instance <m1>.
+WARNING:Xst:2677 - Node <char_data_out_0> of sequential type is unconnected in block <pxl1>.
+WARNING:Xst:2677 - Node <char_data_out_1> of sequential type is unconnected in block <pxl1>.
+WARNING:Xst:2677 - Node <char_data_out_2> of sequential type is unconnected in block <pxl1>.
+WARNING:Xst:2677 - Node <char_data_out_3> of sequential type is unconnected in block <pxl1>.
+WARNING:Xst:2677 - Node <char_data_out_4> of sequential type is unconnected in block <pxl1>.
+WARNING:Xst:2677 - Node <char_data_out_5> of sequential type is unconnected in block <pxl1>.
+WARNING:Xst:2677 - Node <char_data_out_6> of sequential type is unconnected in block <pxl1>.
+WARNING:Xst:2677 - Node <char_data_out_7> of sequential type is unconnected in block <pxl1>.
+WARNING:Xst:2677 - Node <reg_logical_row_9> of sequential type is unconnected in block <pxl1>.
+
+Synthesizing (advanced) Unit <pixel_gen>.
+The following registers are absorbed into counter <state>: 1 register on signal <state>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_glyph_word_index> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 2-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <reg_logical_row<2:0>> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <glyph_word_index> |          |
+    -----------------------------------------------------------------------
+Unit <pixel_gen> synthesized (advanced).
+
+Synthesizing (advanced) Unit <signal_gen>.
+The following registers are absorbed into counter <pxl_counter>: 1 register on signal <pxl_counter>.
+Unit <signal_gen> synthesized (advanced).
+WARNING:Xst:2677 - Node <char_data_out_0> of sequential type is unconnected in block <pixel_gen>.
+WARNING:Xst:2677 - Node <char_data_out_1> of sequential type is unconnected in block <pixel_gen>.
+WARNING:Xst:2677 - Node <char_data_out_2> of sequential type is unconnected in block <pixel_gen>.
+WARNING:Xst:2677 - Node <char_data_out_3> of sequential type is unconnected in block <pixel_gen>.
+WARNING:Xst:2677 - Node <char_data_out_4> of sequential type is unconnected in block <pixel_gen>.
+WARNING:Xst:2677 - Node <char_data_out_5> of sequential type is unconnected in block <pixel_gen>.
+WARNING:Xst:2677 - Node <char_data_out_6> of sequential type is unconnected in block <pixel_gen>.
+WARNING:Xst:2677 - Node <char_data_out_7> of sequential type is unconnected in block <pixel_gen>.
+WARNING:Xst:2677 - Node <reg_logical_row_9> of sequential type is unconnected in block <pixel_gen>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 8x2-bit single-port distributed Read Only RAM         : 1
+# Adders/Subtractors                                   : 9
+ 10-bit adder                                          : 2
+ 10-bit subtractor                                     : 2
+ 11-bit adder                                          : 1
+ 14-bit adder                                          : 1
+ 3-bit subtractor                                      : 1
+ 4-bit adder                                           : 1
+ 4-bit subtractor                                      : 1
+# Counters                                             : 2
+ 2-bit up counter                                      : 2
+# Registers                                            : 81
+ Flip-Flops                                            : 81
+# Comparators                                          : 6
+ 10-bit comparator greater                             : 2
+ 10-bit comparator lessequal                           : 4
+# Multiplexers                                         : 10
+ 1-bit 16-to-1 multiplexer                             : 2
+ 1-bit 2-to-1 multiplexer                              : 1
+ 10-bit 2-to-1 multiplexer                             : 4
+ 14-bit 2-to-1 multiplexer                             : 2
+ 8-bit 2-to-1 multiplexer                              : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <TopVGA> ...
+
+Optimizing unit <pixel_gen> ...
+
+Optimizing unit <signal_gen> ...
+INFO:Xst:2261 - The FF/Latch <pxl1/reg_logical_col_0> in Unit <TopVGA> is equivalent to the following FF/Latch, which will be removed : <sig1/col_0> 
+INFO:Xst:2261 - The FF/Latch <pxl1/reg_logical_col_1> in Unit <TopVGA> is equivalent to the following FF/Latch, which will be removed : <sig1/col_1> 
+INFO:Xst:2261 - The FF/Latch <pxl1/reg_logical_col_2> in Unit <TopVGA> is equivalent to the following FF/Latch, which will be removed : <sig1/col_2> 
+INFO:Xst:2261 - The FF/Latch <pxl1/reg_logical_col_3> in Unit <TopVGA> is equivalent to the following FF/Latch, which will be removed : <sig1/col_3> 
+INFO:Xst:2261 - The FF/Latch <pxl1/state_0> in Unit <TopVGA> is equivalent to the following FF/Latch, which will be removed : <sig1/pxl_counter_0> 
+INFO:Xst:2261 - The FF/Latch <pxl1/state_1> in Unit <TopVGA> is equivalent to the following FF/Latch, which will be removed : <sig1/pxl_counter_1> 
+INFO:Xst:3203 - The FF/Latch <pxl1/reg_logical_row_0> in Unit <TopVGA> is the opposite to the following FF/Latch, which will be removed : <sig1/row_0> 
+INFO:Xst:3203 - The FF/Latch <pxl1/reg_logical_col_4> in Unit <TopVGA> is the opposite to the following FF/Latch, which will be removed : <sig1/col_4> 
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block TopVGA, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 77
+ Flip-Flops                                            : 77
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : TopVGA.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 137
+#      GND                         : 2
+#      INV                         : 1
+#      LUT2                        : 18
+#      LUT3                        : 15
+#      LUT4                        : 17
+#      LUT5                        : 13
+#      LUT6                        : 41
+#      MUXCY                       : 13
+#      MUXF7                       : 2
+#      VCC                         : 1
+#      XORCY                       : 14
+# FlipFlops/Latches                : 79
+#      FD                          : 16
+#      FDE                         : 53
+#      FDR                         : 2
+#      FDRE                        : 8
+# RAMS                             : 8
+#      RAMB18E1                    : 1
+#      RAMB36E1                    : 7
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 10
+#      OBUF                        : 10
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 7a100tcsg324-1 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              79  out of  126800     0%  
+ Number of Slice LUTs:                  105  out of  63400     0%  
+    Number used as Logic:               105  out of  63400     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    136
+   Number with an unused Flip Flop:      57  out of    136    41%  
+   Number with an unused LUT:            31  out of    136    22%  
+   Number of fully used LUT-FF pairs:    48  out of    136    35%  
+   Number of unique control sets:         7
+
+IO Utilization: 
+ Number of IOs:                          20
+ Number of bonded IOBs:                  11  out of    210     5%  
+
+Specific Feature Utilization:
+ Number of Block RAM/FIFO:                8  out of    135     5%  
+    Number using Block RAM only:          8
+ Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 87    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+-------+
+Control Signal                     | Buffer(FF name)                                                                                                                         | Load  |
+-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+-------+
+m1/N1(m1/XST_GND:G)                | NONE(m1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM36.ram)| 14    |
+-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -1
+
+   Minimum period: 5.305ns (Maximum Frequency: 188.484MHz)
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: 0.877ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 5.305ns (frequency: 188.484MHz)
+  Total number of paths / destination ports: 3227 / 156
+-------------------------------------------------------------------------
+Delay:               5.305ns (Levels of Logic = 14)
+  Source:            m1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM18.ram (RAM)
+  Destination:       m1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM18.ram (RAM)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: m1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM18.ram to m1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM18.ram
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB18E1:CLKARDCLK->DOADO0    3   2.454   0.435  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM18.ram (douta<0>)
+     end scope: 'm1:douta<0>'
+     LUT4:I3->O            1   0.124   0.000  pxl1/Mmux_fetch_addr_rs_lut<2> (pxl1/Mmux_fetch_addr_rs_lut<2>)
+     MUXCY:S->O            1   0.472   0.000  pxl1/Mmux_fetch_addr_rs_cy<2> (pxl1/Mmux_fetch_addr_rs_cy<2>)
+     MUXCY:CI->O           1   0.029   0.000  pxl1/Mmux_fetch_addr_rs_cy<3> (pxl1/Mmux_fetch_addr_rs_cy<3>)
+     MUXCY:CI->O           1   0.029   0.000  pxl1/Mmux_fetch_addr_rs_cy<4> (pxl1/Mmux_fetch_addr_rs_cy<4>)
+     MUXCY:CI->O           1   0.029   0.000  pxl1/Mmux_fetch_addr_rs_cy<5> (pxl1/Mmux_fetch_addr_rs_cy<5>)
+     MUXCY:CI->O           1   0.029   0.000  pxl1/Mmux_fetch_addr_rs_cy<6> (pxl1/Mmux_fetch_addr_rs_cy<6>)
+     MUXCY:CI->O           1   0.029   0.000  pxl1/Mmux_fetch_addr_rs_cy<7> (pxl1/Mmux_fetch_addr_rs_cy<7>)
+     MUXCY:CI->O           1   0.029   0.000  pxl1/Mmux_fetch_addr_rs_cy<8> (pxl1/Mmux_fetch_addr_rs_cy<8>)
+     MUXCY:CI->O           1   0.029   0.000  pxl1/Mmux_fetch_addr_rs_cy<9> (pxl1/Mmux_fetch_addr_rs_cy<9>)
+     MUXCY:CI->O           1   0.029   0.000  pxl1/Mmux_fetch_addr_rs_cy<10> (pxl1/Mmux_fetch_addr_rs_cy<10>)
+     MUXCY:CI->O           1   0.029   0.000  pxl1/Mmux_fetch_addr_rs_cy<11> (pxl1/Mmux_fetch_addr_rs_cy<11>)
+     MUXCY:CI->O           0   0.029   0.000  pxl1/Mmux_fetch_addr_rs_cy<12> (pxl1/Mmux_fetch_addr_rs_cy<12>)
+     XORCY:CI->O           9   0.510   0.452  pxl1/Mmux_fetch_addr_rs_xor<13> (fetch_addr_wire<13>)
+     begin scope: 'm1:addra<13>'
+     RAMB18E1:ADDRARDADDR13        0.566          U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/NO_BMM_INFO.SP.SIMPLE_PRIM18.ram
+    ----------------------------------------
+    Total                      5.305ns (4.418ns logic, 0.887ns route)
+                                       (83.3% logic, 16.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 10 / 10
+-------------------------------------------------------------------------
+Offset:              0.877ns (Levels of Logic = 1)
+  Source:            sig1/vgaBlue_1 (FF)
+  Destination:       vgaBlue_Pad<1> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: sig1/vgaBlue_1 to vgaBlue_Pad<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.478   0.399  sig1/vgaBlue_1 (sig1/vgaBlue_1)
+     OBUF:I->O                 0.000          vgaBlue_Pad_1_OBUF (vgaBlue_Pad<1>)
+    ----------------------------------------
+    Total                      0.877ns (0.478ns logic, 0.399ns route)
+                                       (54.5% logic, 45.5% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    5.305|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 13.00 secs
+Total CPU time to Xst completion: 12.97 secs
+ 
+--> 
+
+Total memory usage is 430104 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   22 (   0 filtered)
+Number of infos    :   10 (   0 filtered)
+
