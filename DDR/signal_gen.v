@@ -58,7 +58,7 @@ wire[9:0] nxt_row = line_ending ? ((row == 10'd524) ? 10'd0 : row + 1'b1) : row;
 
 assign next_col_out = nxt_col;
 assign next_row_out = nxt_row;
-
+										//688
 wire h_in_frame = col >= 48 && col < (48 + 640);
 wire v_in_frame = row >= 33 && row < (32 + 480);
 

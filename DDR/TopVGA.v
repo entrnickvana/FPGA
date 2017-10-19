@@ -20,8 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module TopVGA(
 	input clk,
-	input snowButton,
-	input [7:0] switches,
+	input [9:0] switches,
 	output [1:0] vgaBlue_Pad,
 	output [2:0] vgaGreen_Pad,
 	output [2:0] vgaRed_Pad,
@@ -35,9 +34,9 @@ module TopVGA(
 	wire [7:0]colors_pxl_signal;
 
 	wire enableWrite = 1'b0;
-	wire[13:0] fetch_addr_wire;
-	wire[15:0] fetched_data_wire;
-	wire[15:0] unused_write_wire = 16'd0;
+	wire[13:0] 	fetch_addr_wire;
+	wire[15:0] 	fetched_data_wire;
+	wire[15:0] 	unused_write_wire = 16'd0;
 	wire[9:0]	next_col_out_wire;
 	wire[9:0]	next_row_out_wire;	
 //output reg[9:0] col,	output reg[9:0] row,
@@ -61,7 +60,6 @@ module TopVGA(
 	
 
 	pixel_gen pxl1(		clk,							//	clk
-					 	snowButton, 					//	snowButton
 					 	req_signal_pxl,					//	req
 					 	col_signal_pxl,					//	col
 					 	row_signal_pxl,					//	row

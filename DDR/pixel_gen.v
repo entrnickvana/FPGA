@@ -20,11 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 module pixel_gen(
 	input clk,
-	input snowButton,	
 	input req,
 	input[9:0] col, 				
 	input[9:0] row,
-	input[7:0] switches,
+	input[9:0] switches,
 	input[15:0] fetched_data,
 	output reg[7:0] next_color,
 	output reg[13:0] fetch_addr,
@@ -50,11 +49,13 @@ module pixel_gen(
 	wire h_in_frame = col >= 48 && col < (48 + 640);
 	wire v_in_frame = row >= 33 && row < (32 + 480);
 	wire in_frame = h_in_frame && v_in_frame;
+	wire[9:0] check = row ^ col;
+	wire check2 = reg_logical_row[9] ^ reg_logical_col[9];
 
 
 	wire[13:0] fetch_text_addr;
 											// x4					+
-	reg[15:0] char_data_out; 		initial char_data_out = 16'd0;
+	reg[7:0] char_data_out; 		initial char_data_out = 8'd0;
 
 	wire[15:0] char_data_wire = fetched_data;
 
@@ -70,9 +71,7 @@ module pixel_gen(
 
 	wire glyph_bit = reg_logical_row[0] == 0 ? glyph_data_out[7 - glyph_bit_index[2:0] + 8] :  glyph_data_out[7 - glyph_bit_index[2:0]];
 
-	// 10 0000 0000 0000
-
-
+	
 	///////////////  DETERMINE GLYPH WORD INDEX  /////////////////////////
 	always @(*)
 	begin
@@ -87,7 +86,11 @@ module pixel_gen(
 		3'd7: glyph_word_index = 2'd3;
 		endcase
 	end
+	///////////////////////////////////////////////////////////////////////
 
+
+
+	////////////////  MULTIPLEX WIRE INPUTS TO MEM ADDRESS BASED ON STATE  ///////////////////////
 	always@(*)
 	begin
 		case(state)
@@ -104,10 +107,11 @@ module pixel_gen(
 				fetch_addr = ascii_to_glyph;
 	    	  end 
 		endcase
-
 	end
-	///////////////  DETERMINE GLYPH WORD INDEX  /////////////////////////
+	/////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+	///////////////  DETERMINE GLYPH WORD INDEX  /////////////////////////
 
 	/////////////////////////////////////////////////////////
 
@@ -118,12 +122,26 @@ module pixel_gen(
 	reg[9:0] reg_logical_col;  				initial reg_logical_col = 10'd0 - 10'd48;	
 	reg[9:0] reg_logical_row;  				initial reg_logical_row = 10'd0 - 10'd33;
 
-	wire[7:0] new_next_color = glyph_bit ? char_data_out[15:8] : 8'b00000000;  //snowButton ? random[7:0] : checker ? 8'd0 : switches[7:0];
+	//wire[7:0] new_next_color =  glyph_bit ? char_data_out[15:8] : 8'b00000000;  //snowButton ? random[7:0] : checker ? 8'd0 : switches[7:0];
+	reg[7:0] new_next_color;
+
+	always @(*)
+	begin
+		case(switches[9:8])
+		2'd0: new_next_color = checker ? 8'd0 : switches[7:0];
+		2'd1: new_next_color = random[7:0];
+		2'd2: new_next_color = glyph_bit ? char_data_out[7:0] : 8'b00000000;
+ 		2'd3: new_next_color =  glyph_bit ? 8'b11111111 : 8'b00000000; 
+		endcase
+	end
 
 	always @(posedge clk) 
 	begin
+
+		/////////////////  RANDOM NUMBER GENERATION  ////////////////////////////////
 		random <= {random[28:0], random[30] ^ random[28], random[29] ^ random[27]};
 
+		/////////////////  REQUEST LOGIC  ////////////////////////////////
 		if(req == 1'b1)
 			begin
 				next_color <= new_next_color;
@@ -134,12 +152,15 @@ module pixel_gen(
 				next_color <= next_color;
 				state <= state + 1'b1;			
 			end
+		//////////////////////////////////////////////////////////////////
 
 
-		// State Machine
+		/////////////////  REQUEST LOGIC  ////////////////////////////////
+		/////////////////  REQUEST LOGIC  ////////////////////////////////				
+
 		case(state)
 		2'd0:begin
-			/////////   Fetch Text Data   	/////////////
+			/////////   Fetch Text Data   	  /////////////
 			/////////   Logic Col Available   /////////////
 			/////////   Logic Row Available   /////////////
 				char_data_out 	<= char_data_out;  
@@ -150,7 +171,7 @@ module pixel_gen(
 		2'd1:begin
 			/////////   Fetch Glyph Data   	  /////////////
 			/////////   Text Data Available   /////////////			
-				char_data_out 	<= fetched_data;
+				char_data_out 	<= fetched_data[7:0];
 				glyph_data_out 	<= glyph_data_out;
 				reg_logical_col <= reg_logical_col;
 				reg_logical_row <= reg_logical_row;
@@ -171,9 +192,6 @@ module pixel_gen(
 			 end	
 		endcase
 	end
-
-// pxl_ending ? ((col == 10'd799) ? 10'd0 : col + 1'b1) : col;
-// 
 
 
 endmodule

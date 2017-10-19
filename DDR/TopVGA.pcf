@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Thu Sep 21 21:46:30 2017
+// Written by: Map P.20131013 on Fri Sep 22 11:42:40 2017
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -12,8 +12,9 @@ COMP "switches<4>" LOCATE = SITE "R17" LEVEL 1;
 COMP "switches<5>" LOCATE = SITE "T18" LEVEL 1;
 COMP "switches<6>" LOCATE = SITE "U18" LEVEL 1;
 COMP "switches<7>" LOCATE = SITE "R13" LEVEL 1;
+COMP "switches<8>" LOCATE = SITE "T8" LEVEL 1;
+COMP "switches<9>" LOCATE = SITE "U8" LEVEL 1;
 COMP "vgaGreen_Pad<0>" LOCATE = SITE "C6" LEVEL 1;
-COMP "snowButton" LOCATE = SITE "P18" LEVEL 1;
 COMP "vgaGreen_Pad<1>" LOCATE = SITE "A5" LEVEL 1;
 COMP "vgaGreen_Pad<2>" LOCATE = SITE "B6" LEVEL 1;
 COMP "v_sync_Pad" LOCATE = SITE "B12" LEVEL 1;
@@ -186,7 +187,14 @@ TIMEGRP sys_clk_pin = BEL "pxl1/state_1" BEL "pxl1/state_0" BEL
         "pxl1/reg_logical_col_6" BEL "pxl1/reg_logical_col_5" BEL
         "pxl1/reg_logical_col_4" BEL "pxl1/reg_logical_col_3" BEL
         "pxl1/reg_logical_col_2" BEL "pxl1/reg_logical_col_1" BEL
-        "pxl1/reg_logical_col_0" BEL "pxl1/glyph_data_out_15" BEL
+        "pxl1/reg_logical_col_0" BEL "pxl1/random_30" BEL "pxl1/random_29" BEL
+        "pxl1/random_7" BEL "pxl1/random_6" BEL "pxl1/random_5" BEL
+        "pxl1/random_4" BEL "pxl1/random_3" BEL "pxl1/random_2" BEL
+        "pxl1/random_1" BEL "pxl1/random_0" BEL "pxl1/char_data_out_7" BEL
+        "pxl1/char_data_out_6" BEL "pxl1/char_data_out_5" BEL
+        "pxl1/char_data_out_4" BEL "pxl1/char_data_out_3" BEL
+        "pxl1/char_data_out_2" BEL "pxl1/char_data_out_1" BEL
+        "pxl1/char_data_out_0" BEL "pxl1/glyph_data_out_15" BEL
         "pxl1/glyph_data_out_14" BEL "pxl1/glyph_data_out_13" BEL
         "pxl1/glyph_data_out_12" BEL "pxl1/glyph_data_out_11" BEL
         "pxl1/glyph_data_out_10" BEL "pxl1/glyph_data_out_9" BEL
@@ -194,18 +202,15 @@ TIMEGRP sys_clk_pin = BEL "pxl1/state_1" BEL "pxl1/state_0" BEL
         "pxl1/glyph_data_out_6" BEL "pxl1/glyph_data_out_5" BEL
         "pxl1/glyph_data_out_4" BEL "pxl1/glyph_data_out_3" BEL
         "pxl1/glyph_data_out_2" BEL "pxl1/glyph_data_out_1" BEL
-        "pxl1/glyph_data_out_0" BEL "pxl1/char_data_out_15" BEL
-        "pxl1/char_data_out_14" BEL "pxl1/char_data_out_13" BEL
-        "pxl1/char_data_out_12" BEL "pxl1/char_data_out_11" BEL
-        "pxl1/char_data_out_10" BEL "pxl1/char_data_out_9" BEL
-        "pxl1/char_data_out_8" BEL "sig1/v_sync" BEL "sig1/h_sync" BEL
+        "pxl1/glyph_data_out_0" BEL "sig1/v_sync" BEL "sig1/h_sync" BEL
         "sig1/col_9" BEL "sig1/col_8" BEL "sig1/col_7" BEL "sig1/col_6" BEL
         "sig1/col_5" BEL "sig1/row_9" BEL "sig1/row_8" BEL "sig1/row_7" BEL
         "sig1/row_6" BEL "sig1/row_5" BEL "sig1/row_4" BEL "sig1/row_3" BEL
         "sig1/row_2" BEL "sig1/row_1" BEL "sig1/vgaBlue_1" BEL
         "sig1/vgaBlue_0" BEL "sig1/vgaGreen_2" BEL "sig1/vgaGreen_1" BEL
         "sig1/vgaGreen_0" BEL "sig1/vgaRed_2" BEL "sig1/vgaRed_1" BEL
-        "sig1/vgaRed_0" BEL "clk_BUFGP/BUFG" BEL
+        "sig1/vgaRed_0" BEL "clk_BUFGP/BUFG" BEL "pxl1/Mshreg_random_28" BEL
+        "pxl1/random_28" BEL "pxl1/Mshreg_random_27" BEL "pxl1/random_27" BEL
         "m1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_0"
         BEL
         "m1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_1"

@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-09-20T16:33:06</DateModified>
+  <DateModified>2017-10-19T10:10:27</DateModified>
   <ModuleName>TopVGA</ModuleName>
-  <SummaryTimeStamp>Unknown</SummaryTimeStamp>
+  <SummaryTimeStamp>2017-09-22T11:43:58</SummaryTimeStamp>
   <SavedFilePath>C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/DDR/iseconfig/TopVGA.xreport</SavedFilePath>
   <ImplementationReportsDirectory>C:/Users/Nickj/Desktop/NickFall2017/ECE_3710/FPGA_PROJECTS/DDR\</ImplementationReportsDirectory>
   <DateInitialized>2017-09-16T14:23:02</DateInitialized>
-  <EnableMessageFiltering>false</EnableMessageFiltering>
+  <EnableMessageFiltering>true</EnableMessageFiltering>
  </header>
  <body>
   <viewgroup label="Design Overview" >
