@@ -23,8 +23,8 @@ module reg_file(input clk,
 				input[4:0] reg_index2,				
 				input[15:0] w_data,
 				input w_enable,
-				output reg[15:0] reg_data1,
-				output reg[15:0] reg_data2				
+				output reg[15:0] read_reg_data1,
+				output reg[15:0] read_reg_data2				
     			);
 
 
@@ -65,45 +65,127 @@ reg[15:0] r31 = 16'd0;
 module reg_file(input clk,
 				input[4:0] reg_index,
 				input w_enable,
-				output reg[15:0] reg_data
+				output reg[15:0] read_reg_data
     			);
 */
 	/// Multiplex reg_index
 	always @(*)
 	begin
-		case(reg_index)
+		case(reg_index1)
 		begin
-		5'd0: reg_data = r0;
-		5'd1: reg_data = r1;
-		5'd2: reg_data = r2;
-		5'd3: reg_data = r3;
-		5'd4: reg_data = r4;
-		5'd5: reg_data = r5;
-		5'd6: reg_data = r6;
-		5'd7: reg_data = r7;
-		5'd8: reg_data = r8;
-		5'd9: reg_data = r9;
-		5'd10: reg_data = r10;
-		5'd11: reg_data = r11;
-		5'd12: reg_data = r12;
-		5'd13: reg_data = r13;
-		5'd14: reg_data = r14;
-		5'd15: reg_data = r15;
-		5'd16: reg_data = r16;
-		5'd17: reg_data = r17;
-		5'd18: reg_data = r18;
-		5'd19: reg_data = r19;
-		5'd20: reg_data = r20;
-		5'd21: reg_data = r21;
-		5'd22: reg_data = r22;
-		5'd23: reg_data = r23;
-		5'd24: reg_data = r24;
-		5'd25: reg_data = r25;
-		5'd26: reg_data = r26;
-		5'd27: reg_data = r27;
-		5'd28: reg_data = r28;
-		5'd29: reg_data = r29;
-		5'd30: reg_data = r30;
-		5'd31: reg_data = r31;
+		5'd0: read_reg_data1 = r0;
+		5'd1: read_reg_data1 = r1;
+		5'd2: read_reg_data1 = r2;
+		5'd3: read_reg_data1 = r3;
+		5'd4: read_reg_data1 = r4;
+		5'd5: read_reg_data1 = r5;
+		5'd6: read_reg_data1 = r6;
+		5'd7: read_reg_data1 = r7;
+		5'd8: read_reg_data1 = r8;
+		5'd9: read_reg_data1 = r9;
+		5'd10: read_reg_data1 = r10;
+		5'd11: read_reg_data1 = r11;
+		5'd12: read_reg_data1 = r12;
+		5'd13: read_reg_data1 = r13;
+		5'd14: read_reg_data1 = r14;
+		5'd15: read_reg_data1 = r15;
+		5'd16: read_reg_data1 = r16;
+		5'd17: read_reg_data1 = r17;
+		5'd18: read_reg_data1 = r18;
+		5'd19: read_reg_data1 = r19;
+		5'd20: read_reg_data1 = r20;
+		5'd21: read_reg_data1 = r21;
+		5'd22: read_reg_data1 = r22;
+		5'd23: read_reg_data1 = r23;
+		5'd24: read_reg_data1 = r24;
+		5'd25: read_reg_data1 = r25;
+		5'd26: read_reg_data1 = r26;
+		5'd27: read_reg_data1 = r27;
+		5'd28: read_reg_data1 = r28;
+		5'd29: read_reg_data1 = r29;
+		5'd30: read_reg_data1 = r30;
+		5'd31: read_reg_data1 = r31;
 		endcase
+
+
+	/// Multiplex reg_index
+	always @(*)
+	begin
+		case(reg_index1)
+		begin
+		5'd0: read_reg_data2 = r0;
+		5'd1: read_reg_data2 = r1;
+		5'd2: read_reg_data2 = r2;
+		5'd3: read_reg_data2 = r3;
+		5'd4: read_reg_data2 = r4;
+		5'd5: read_reg_data2 = r5;
+		5'd6: read_reg_data2 = r6;
+		5'd7: read_reg_data2 = r7;
+		5'd8: read_reg_data2 = r8;
+		5'd9: read_reg_data2 = r9;
+		5'd10: read_reg_data2 = r10;
+		5'd11: read_reg_data2 = r11;
+		5'd12: read_reg_data2 = r12;
+		5'd13: read_reg_data2 = r13;
+		5'd14: read_reg_data2 = r14;
+		5'd15: read_reg_data2 = r15;
+		5'd16: read_reg_data2 = r16;
+		5'd17: read_reg_data2 = r17;
+		5'd18: read_reg_data2 = r18;
+		5'd19: read_reg_data2 = r19;
+		5'd20: read_reg_data2 = r20;
+		5'd21: read_reg_data2 = r21;
+		5'd22: read_reg_data2 = r22;
+		5'd23: read_reg_data2 = r23;
+		5'd24: read_reg_data2 = r24;
+		5'd25: read_reg_data2 = r25;
+		5'd26: read_reg_data2 = r26;
+		5'd27: read_reg_data2 = r27;
+		5'd28: read_reg_data2 = r28;
+		5'd29: read_reg_data2 = r29;
+		5'd30: read_reg_data2 = r30;
+		5'd31: read_reg_data2 = r31;
+		endcase
+
+			/// Multiplex reg_index
+	always @(*)
+	begin
+		case(reg_index1)
+		begin
+		5'd0: read_reg_data2 = r0;
+		5'd1: read_reg_data2 = r1;
+		5'd2: read_reg_data2 = r2;
+		5'd3: read_reg_data2 = r3;
+		5'd4: read_reg_data2 = r4;
+		5'd5: read_reg_data2 = r5;
+		5'd6: read_reg_data2 = r6;
+		5'd7: read_reg_data2 = r7;
+		5'd8: read_reg_data2 = r8;
+		5'd9: read_reg_data2 = r9;
+		5'd10: read_reg_data2 = r10;
+		5'd11: read_reg_data2 = r11;
+		5'd12: read_reg_data2 = r12;
+		5'd13: read_reg_data2 = r13;
+		5'd14: read_reg_data2 = r14;
+		5'd15: read_reg_data2 = r15;
+		5'd16: read_reg_data2 = r16;
+		5'd17: read_reg_data2 = r17;
+		5'd18: read_reg_data2 = r18;
+		5'd19: read_reg_data2 = r19;
+		5'd20: read_reg_data2 = r20;
+		5'd21: read_reg_data2 = r21;
+		5'd22: read_reg_data2 = r22;
+		5'd23: read_reg_data2 = r23;
+		5'd24: read_reg_data2 = r24;
+		5'd25: read_reg_data2 = r25;
+		5'd26: read_reg_data2 = r26;
+		5'd27: read_reg_data2 = r27;
+		5'd28: read_reg_data2 = r28;
+		5'd29: read_reg_data2 = r29;
+		5'd30: read_reg_data2 = r30;
+		5'd31: read_reg_data2 = r31;
+		endcase
+
+
 	end
+
