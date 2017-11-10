@@ -18,8 +18,19 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module core(
-    );
+module core(	input clk,
+
+				input[15:0] mem_out,
+				input[7:0] servo_in,
+				input[7:0] ir_in,
+				output[23:0] mem_addr,
+				output[7:0] ir_out,
+				output[7:0] servo_out,
+
+
+
+
+    		);
 
 
 endmodule
